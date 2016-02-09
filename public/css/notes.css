@@ -1,0 +1,64 @@
+.header-note-btn {
+  background: #ffff99;
+  color: black;
+  border: 0px;
+}
+
+.header-note-btn:hover {
+  background: #ffff91;
+  color: brown;
+}
+
+.keep-settings {
+  height: 67px;
+  width: 820px;
+  background: linear-gradient(#F2F2F2 10%, white);
+  padding: 0px 50px 0px 50px;
+  border-top: 1px  lightgrey solid;
+  text-align: right;
+}
+
+.keep-settings .note-btn {
+  margin-top: 20px;
+  margin-left: 5px;
+  border: 1px darkgray solid;
+  height: 30px;
+  width: auto;
+  background: linear-gradient(white, lightgray);
+  border-radius: 7px;
+  border: 0px;
+}
+
+.keep-settings .note-btn:hover {
+  background: linear-gradient(lightgray, white);
+}
+
+html body {
+  background-color: black;
+}
+
+.keep-app {
+  /*principal size*/
+  height: 450px;
+  width: 820px;
+  background: linear-gradient(#F2F2F2, #EEEEEE);
+  padding: 50px;
+  overflow-y: auto;
+}
+
+.keep-app .simple-note {
+  height: 200px;
+  width: 200px;
+  background: #ffff99;
+  border: 0px;
+  font-family: 'OpenSans';
+  font-size: 17px;
+  margin: 30px 30px 30px 30px;
+  padding-left: 5px;
+  box-shadow: 1px 4px 24px 1px gray;
+  /*shadow fixed*/
+}
+
+.keep-app .simple-note:focus {
+  box-shadow: 0px 0px 10px 1px #71C6EE;
+}

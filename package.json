@@ -1,0 +1,17 @@
+{
+  "name": "fedora_os",
+  "version": "1.0.2",
+  "description": "emulation of fedora",
+  "main": "index.js",
+  "scripts": {
+    "test": "babel --presets react ./public/js/components/ --watch --out-dir build"
+  },
+  "author": "Elihu A. Cruz Albores",
+  "license": "ISC",
+  "dependencies": {
+    "babel-preset-react": "^6.5.0",
+    "babelify": "^7.2.0",
+    "react": "^0.14.7",
+    "react-dom": "^0.14.7"
+  }
+}

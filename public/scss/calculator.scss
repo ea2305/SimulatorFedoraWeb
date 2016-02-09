@@ -1,0 +1,74 @@
+$sizeX : 28vw;
+
+@mixin btnConfig(){
+    border: #B3B3B3 solid 1px;
+    border-radius: 3px;
+    margin: 5px 0px 0px 2px;    
+}
+
+@mixin config($w,$h,$color){
+  width: $w;
+  height: $h;
+  background: $color;
+}
+
+.app-calculator{
+    @include config(28.5vw,50vh,#F5F5F5);
+    border: 0px;
+    
+    .promp-cont{
+        @include config(100%,50%,transparent);
+        font-family: 'OpenSans-Light';
+        font-weight: 300;
+        font-size: 40px;
+        text-align: right;
+        
+        .cal-prev-promp{
+            @include config(100%,60%,whitesmoke);
+
+        }
+
+        .cal-promp{
+            border-top: 1px solid black;
+            border-bottom: 1px solid black;
+            @include config(100%,40%,white);
+            overflow-x: auto;
+        }
+    }
+    
+    .cal-container{
+        
+        padding: 1% 1% 1% 1%;
+        @include config(98%,48%, transparent);
+
+        .flex-btn{
+            display: flex;
+            height: 25%;
+            .btn-n{
+                &:hover{
+                    transition: all .3s;
+                    background: linear-gradient(white,#D0D0D1 50%);    
+                }
+                
+                display: inline-block;
+                @include config(12.6%,78%,linear-gradient(white,#D4D4D4 95%));
+                @include btnConfig();
+
+            }
+            
+            .btn-f-igual{
+                
+                &:hover{
+                    transition: all .3s; 
+                    background: linear-gradient(#6C9EFF,#327DFF);    
+                }
+                
+                display: inline-block;
+                @include config(29.2%,78%,linear-gradient(#4486FF,#327DFF));
+                @include btnConfig();
+                color: white; 
+            }
+        }
+    }
+    
+}

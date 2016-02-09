@@ -1,0 +1,67 @@
+$sizex-note: 820px;
+@mixin config-note($w,$h,$color){
+    height: $h;
+    width: $w;
+    background: $color;
+}
+
+.header-note-btn{
+    &:hover{
+        background: #ffff91;    
+        color: brown;
+    }
+    
+    background: #ffff99;
+    color: black;
+    border: 0px;
+}
+
+.keep-settings{
+    @include config-note($sizex-note,67px,linear-gradient(#F2F2F2 10%,white));
+    padding: 0px 50px 0px 50px;
+    border-top: 1px  lightgrey solid;
+    text-align: right;
+    
+    .note-btn{
+        margin-top: 20px;
+        margin-left: 5px;
+        border: 1px darkgray solid;
+        @include config-note(auto,30px,linear-gradient(white,lightgray));
+        border-radius: 7px;
+        border: 0px;
+
+        &:hover{
+            background: linear-gradient(lightgray,white);
+        }    
+    }
+}
+
+html body{
+    background-color: black;    
+}
+
+.keep-app{
+    /*principal size*/
+    @include config-note($sizex-note,450px,linear-gradient(#F2F2F2,#EEEEEE));
+    padding: 50px;
+    overflow-y: auto;
+    
+    .simple-note{
+        
+        &:focus{
+            box-shadow: 0px 0px 10px 1px #71C6EE;
+        }
+
+        @include config-note(200px,200px,#ffff99);
+        border: 0px;
+        font-family: 'OpenSans';
+        font-size: 17px;
+        margin: 30px 30px 30px 30px;
+        padding-left: 5px;
+        box-shadow: 1px 4px 24px 1px gray;/*shadow fixed*/
+    }
+    
+}
+
+
+

@@ -1,0 +1,87 @@
+.infoSystem-content {
+  width: 630px;
+  height: 500px;
+  background: #e9e9e9;
+  display: inline-flex;
+}
+
+.options-infoSystem {
+  width: 25%;
+  height: 88%;
+  background: #e9e9e9;
+  padding: 5% 20px 5% 20px;
+}
+
+.options-infoSystem .elements-info {
+  width: 100%;
+  height: 100%;
+  background: white;
+  border: #a6a6a6 solid 1px;
+  border-radius: 5px;
+}
+
+.options-infoSystem .elements-info .item-info {
+  width: 100%;
+  height: 5%;
+  background: #3399ff;
+  color: white;
+  text-align: center;
+  padding: 5% 0px 5% 0px;
+  font-family: 'OpenSans';
+}
+
+.infoSystem-info {
+  width: 64%;
+  height: 88%;
+  background: #e9e9e9;
+  padding: 3% 20px 7% 20px;
+}
+
+.infoSystem-info .info-system {
+  width: 100%;
+  height: 100%;
+  background: #e9e9e9;
+  text-align: center;
+}
+
+.infoSystem-info .info-system .title-system {
+  font-family: 'OpenSans';
+  font-size: 25px;
+  color: #2F69FF;
+}
+
+.infoSystem-info .info-system .position-info {
+  display: inline-flex;
+  font-size: 14px;
+}
+
+.infoSystem-info .info-system .position-info .left-info {
+  margin-top: 7px;
+  text-align: right;
+  font-family: 'OpenSans';
+  font-weight: bold;
+  color: #a6a6a6;
+}
+
+.infoSystem-info .info-system .position-info .right-info {
+  padding-left: 3%;
+  text-align: left;
+  font-family: Helvetica;
+  font-weight: bold;
+  color: black;
+}
+
+.infoSystem-info .info-system .position-info .right-info input {
+  margin-top: 3%;
+  margin-bottom: 3%;
+  border-radius: 3px;
+  border: solid 1px #a6a6a6;
+  color: #a6a6a6;
+}
+
+.infoSystem-info .info-system img {
+  margin-top: 4%;
+  width: 100px;
+  height: 100px;
+  margin: 20px;
+}
