@@ -4,7 +4,7 @@
   "description": "emulation of fedora",
   "main": "index.js",
   "scripts": {
-    "test": "babel --presets react ./public/js/components/ --watch --out-dir build"
+    "build": "babel --presets react ./components/ --watch --out-dir build"
   },
   "author": "Elihu A. Cruz Albores",
   "license": "ISC",

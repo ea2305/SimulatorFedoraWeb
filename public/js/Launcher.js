@@ -7,7 +7,7 @@ var process = 0;//index of proces launched
 var activity = [];//Process actives
 
 var startApp = (app) => {
-    switch(app){ 
+    switch(app){
         case 'calculator' :
             Launch(app,app_1,'Basic Mode');
             startCalculator();
@@ -34,15 +34,15 @@ var isRunning = (process) => {
 
 //Content scene
 var stage = (title) => {
-    var header = "<div class='stage-header'>" + 
-        "<button id='app_" + process + "' type='button' class='action-stage  pull-right glyphicon glyphicon-remove'></button>" + 
+    var header = "<div class='stage-header'>" +
+        "<button id='app_" + process + "' type='button' class='action-stage  pull-right glyphicon glyphicon-remove'></button>" +
         "<button id='app_search_" + process + "' type='button' class='action-stage  pull-left glyphicon glyphicon-edit'></button>" +
         "<h4>" + title + "</h4>"+
         "</div>";
-        
+
     var app = "<div id='windows_" + process + "' class='stage-master '>" + header + "<div id='scene_" + process + "' class='stage'></div>" + "</div>";
     return app;
-    
+
 };
 
 var hiddeModal = () =>{
@@ -51,9 +51,9 @@ var hiddeModal = () =>{
     //animation
     {opacity : 0},30,() => {
         //Exit function
-        console.log('Animation finished');    
+        console.log('Animation finished');
         $('.modal-window').css('z-index','10');
-        $('.left-corn').removeClass('white-corner');    
+        $('.left-corn').removeClass('white-corner');
         state = false;
     });
 }
@@ -62,7 +62,7 @@ var Launch = (app,title) =>{
     if(!(isRunning(app))){
         $('body').append(stage(title));
         activity.push(app);
-        $( ".stage-master").draggable();
+        $( ".stage-master").draggable({containment: "parent"});
         hiddeModal();
     }else{
         alert('Aplicacion en ejecucion');
