@@ -1,0 +1,72 @@
+/*Set generic configurations*/
+@mixin config($w,$h,$color){
+  width: $w;
+  height: $h;
+  background: $color;
+}
+
+/*Configuration of btn on calculator*/
+@mixin btnConfig(){
+    border: #B3B3B3 solid 1px;
+    border-radius: 3px;
+    margin: 5px 0px 0px 2px;
+}
+
+/*Parameters of notes on noteApp*/
+@mixin config-note($w,$h,$color){
+    height: $h;
+    width: $w;
+    background: $color;
+}
+
+//Simple style of bar content
+@mixin bar-style($color,$width,$heigth){
+        /**position*/
+        display: inline-block;
+
+        &:hover{
+            //transition: border-bottom .3s;
+            transition: all .1s;
+            color: white;
+        }
+
+        /*Dimensions*/
+        width: $width;
+        height: $heigth;
+
+        /*color*/
+        font-weight: bold;
+        color: #D7D7D7;
+}
+
+
+/*
+    Mixins of styleBox
+*/
+@mixin radius-solid($top-left,$top-right,$bottom-right,$bottom-left,$size,$color){
+
+    border-top: solid $color $size;
+    border-right: solid $color $size;
+    border-bottom: solid $color $size;
+
+    border-radius: $top-left $top-right $bottom-right $bottom-left;
+
+}
+
+@mixin box-style($color,$width,$heigth){
+    display: inline-block;
+    background: $color;
+    width: $width;
+    height: $heigth;
+}
+
+@mixin search-style($width,$heigth,$radius){
+    width: $width;
+    height: $heigth;
+    background: linear-gradient(rgba(0,0,0,.3) 10%,rgba(255,255,255,.2));
+    margin-top: 1%;
+    border: solid white 1px;
+    border-radius: $radius;
+    font-family: 'OpenSans';
+    color: #C3C3C3;
+}

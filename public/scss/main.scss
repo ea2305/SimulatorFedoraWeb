@@ -1,9 +1,19 @@
-/*Convert box on content*/
+@import "functions";
+@import "calculator";
+@import "infoSystem";
+@import "notes";
+@import "styleBox";
+@import "styleDesktop";
+
+
+/*
+    import fonts to generic directory
+    Convert box on content
+*/
 @font-face{
     font-family: 'OpenSans';
     src: url('../fonts/OpenSans-Regular.ttf');
 }
-
 @font-face{
     font-family: 'OpenSans-Light';
     src: url('../fonts/OpenSans-Light.ttf');
@@ -11,43 +21,22 @@
 
 
 *{
- box-sizing: content-box !important;   
-}
-
-//Simple style of bar content
-@mixin bar-style($color,$width,$heigth){    
-        /**position*/
-        display: inline-block;
-
-        &:hover{
-            //transition: border-bottom .3s;
-            transition: all .1s;
-            color: white;
-        }
-        
-        /*Dimensions*/
-        width: $width;
-        height: $heigth;
-        
-        /*color*/
-        font-weight: bold;
-        color: #D7D7D7;       
+ box-sizing: content-box !important;
 }
 
 html body{
     /*Generate standar configuration*/
-    
+
     width: 100%;
     height: 100vh;/*Redimension size if don't look ok*/
-    margin: 0px 0px 0px 0px;/*Remove the default margin*/
+    margin: 0px;/*Remove the default margin*/
     font-size: 14px;
     /*font-family: Arial, Helvetica, sans-serif;*/
     font-family: 'OpenSans';
-    
     overflow: hidden;
-    
+
     a{text-decoration: none;}
-    
+
     .desktop{
         position: absolute;
         z-index: 5;
@@ -57,37 +46,37 @@ html body{
         width: 100%;
         height: 97%;
     }
-    
+
 }
 
 .bar{
-    
+
     /*style-color*/
     background: linear-gradient(#181818,black);
     box-shadow: (3px -11px 120px 35px);
     height: 3%;
-    
+
     .activity-bar{
         text-align: center;
         border-radius: 0px 0px 0px 10px;
         @include bar-style(#181818,14%,100%);
     }
-    
+
     .action-bar{
         text-align: center;
         @include bar-style(#181818,65%,100%);
     }
-    
+
     .utilities-bar{
         text-align: right;
-        border-radius: 0px 0px 10px 0px ;
+        border-radius: 0px 0px 10px 0px;
         @include bar-style(#181818,19%,100%);
-        
+
         span{
             padding: 0px 5px 0px 5px;
             &:hover{
                 transition: all .3s;
-                color: lightskyblue;
+                color: white;
             }
             width: 4%;
             height: 100%;
@@ -105,7 +94,3 @@ html body{
     z-index: 15;
     opacity: 0;
 }
-
-
-
-

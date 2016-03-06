@@ -13,7 +13,9 @@
     </head>
     <body>
         <section id="tool-bar"></section>
-        <section id="menu"></section>
+        <section class="parent-box">
+            <section id="menu"></section>
+        </section>
         <script src="./build/formulary.js"></script>
     </body>
 </html>

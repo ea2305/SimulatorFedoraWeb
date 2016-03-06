@@ -1,41 +1,12 @@
-//Mixins 
-@mixin radius-solid($top-left,$top-right,$bottom-right,$bottom-left,$size,$color){
-    
-    border-top: solid $color $size;
-    border-right: solid $color $size;
-    border-bottom: solid $color $size;
-
-    border-radius: $top-left $top-right $bottom-right $bottom-left;
-    
-}
-
-@mixin box-style($color,$width,$heigth){
-    display: inline-block;
-    background: $color;
-    width: $width;
-    height: $heigth;
-}
-
-@mixin search-style($width,$heigth,$radius){
-    width: $width;
-    height: $heigth;
-    background: linear-gradient(rgba(0,0,0,.3) 10%,rgba(255,255,255,.2));
-    margin-top: 1%;
-    border: solid white 1px;
-    border-radius: $radius;
-    font-family: 'OpenSans';
-    color: #C3C3C3;
-}
-
 .efect-corner{
     display: flex;
     .left-corn{
-        @include box-style(transparent,14%,10px);        
+        @include box-style(transparent,14%,10px);
         border-radius: 10px 0px 0px 0px;
     }
     .center-corn{width: 100%}
     .right-corn{
-        @include box-style(transparent,14%,10px);        
+        @include box-style(transparent,14%,10px);
         border-radius: 0px 10px 0px 0px;
     }
 }
@@ -43,71 +14,71 @@
 .white-corner{border-top: white solid 1px;}
 
 .header-box{
-    
+
     background-color: transparent;
     display: inline-flex;
     /**displays*/
     width: 100%;
     height: 40px;
-    
+
     .info-box{
-        @include box-style(transparent,30%,40px);    
+        @include box-style(transparent,30%,40px);
     }
-        
+
     .search-box{
         @include box-style(transparent,69%,40px);
         display: flex;
-        
+
         input{
             &:focus{
                 transition: all .5s;
                 background: linear-gradient(rgba(0,0,0,.3) 10%,rgba(255,255,255,.5));
             }
-            
+
             margin-left: 19%;
             @include search-style(15vw,20px,20px 0px 0px 20px);
             border-right: 0px;
         }
-        
+
         .right-search{
             padding: 1px;
             @include search-style(20px,20px, 0px 20px 20px 0px);
             border-left: 0px;
         }
-        
+
     }
 }
 
 .body-box{
-    
+
     position: relative;
     display: inline-flex;
     width: 100%;
     height: 86vh;
-    
+
     background-color: transparent;
-    
+
     .items-box{
         @include box-style(black,70px,100%);
         @include radius-solid(0px,5px,5px,0px,1px,#676767);
-   
+
         margin-top: 0%;
         padding: 20px 0px 12px 0px;
 
         .app-box{
-            
+
             width: 70px;
             height: 5vh;
             /*box-shadow: 0px 11px 33px -3px white;*/
             margin: 10px 0px 5px 0px;
-            background: radial-gradient(at bottom,transparent, rgba(255, 255, 255, .17) 0, black);      
+            background: radial-gradient(at bottom,transparent, rgba(255, 255, 255, .17) 0, black);
             text-align: center;
-            
+
             &:hover{
                 transition: all .3s;
                 background: radial-gradient(at bottom,transparent, rgba(255, 255, 255, .4) 0, black);
             }
-            
+
             figure{
                 margin: 0px;
                 img{
@@ -118,15 +89,15 @@
             }
         }
     }
-    
+
     .applications-box{
         @include box-style(transparent,91vw,85vh);
         display: inline-block;
         padding: 0px 12vw 0px 12vw;
         margin-top: 20px;
-        
+
         .app-box{
-            
+
             &:hover{
                 transition: all .3s;
                 background-color: rgba(255,255,255,.2)
@@ -151,21 +122,19 @@
                 }
             }
         }
-        /*width normal 72vw*/
     }
-    
+
     .windows-box{
         @include box-style(black,0vw,85vh);
-        
+
         .search-box{
             display: inline-flex;
         }
-        /*width normal 20vw  */
     }
 }
 
-.footer-box{ 
+.footer-box{
     .select-box{
         @include box-style(transparent,100%,5vh);
-    }  
+    }
 }

@@ -1,3 +1,31 @@
+/*Set generic configurations*/
+/*Configuration of btn on calculator*/
+/*Parameters of notes on noteApp*/
+/*
+    Mixins of styleBox
+*/
 body {
   background: #2A2A2B;
+  width: 100%;
+  color: white;
+}
+
+.parent-box {
+  position: relative;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.login-form {
+  width: 40%;
+  height: 10vh;
+  background: none;
+  align-content: center;
+  border: solid 1px white;
+}
+
+.user-img {
+  width: 20px;
+  height: 20px;
+  background: none;
 }

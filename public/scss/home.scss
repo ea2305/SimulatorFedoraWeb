@@ -1,3 +1,25 @@
+@import "functions";
+$FormX : 40%;
+$FormY : 10vh;
+
 body{
     background: #2A2A2B;
+    width : 100%;
+    color : white;
+}
+
+.parent-box{
+    position : relative;
+    display : flex;
+    flex-flow: row wrap;
+}
+
+.login-form{
+    @include config($FormX,$FormY,none);
+    align-content: center;
+    border: solid 1px white;
+}
+
+.user-img{
+    @include config(20px,20px,none);
 }

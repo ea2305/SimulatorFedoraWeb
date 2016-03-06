@@ -1,43 +1,25 @@
+<!--
+    Simulation of OS Fedora, implementation of some functions
+    author : Elihu Alejandro Cruz Albores
+    version : 1.0.3
+ -->
 <!DOCTYPE html>
 <html lang="es">
     <head>
         <meta charset="UTF-8">
         <title>SimulatorOS</title>
-
-        <!-- Main scripts-->
-        <script src="./public/js/jquery/jquery-1.12.0.min.js"></script>
-        <script src="./public/js/jquery/jquery-ui.min.js"></script>
-        <script src="./public/js/main.js"></script>
-
-        <!-- Styles System -->
-        <link rel="stylesheet" href="./public/css/jquery-ui.theme.min.css">
-        <link rel="stylesheet" href="./public/css/main.css">
-        <link rel="stylesheet" href="./public/css/styleBox.css">
-        <link rel="stylesheet" href="./public/css/styleDesktop.css">
-        <link rel="stylesheet" href="./public/css/calculator.css">
-        <link rel="stylesheet" href="./public/css/notes.css">
-        <link rel="stylesheet" href="./public/css/infoSystem.css">
-        <link rel="stylesheet" href="./public/css/bootstrap.min.css">
-        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
-
-        <!--  -->
-        <script src="./public/js/apps_location.js"></script>
-        <script src="./public/js/Clock.js"></script>
-        <script src="./public/js/bootstrap.min.js"></script>
-        <script src="./build/notes.js"></script>
-        <script src="./build/information.js"></script>
-        <script src="./public/js/Launcher.js"></script>
-
-        <!-- reactJS -->
-        <script src="./public/js/reactJS/react.min.js"></script>
-        <script src="./public/js/reactJS/react-dom.min.js"></script>
-
+        <?php
+            //Import and link elements
+            require "_header.php";
+         ?>
 
     </head>
     <body >
+        <!-- Container of react component -->
         <div id="react"></div>
 
-        <header class="bar">
+        <!-- Bar of navegation -->
+        <nav class="bar">
             <div class="activity-bar">
                 <span>Activities</span>
             </div>
@@ -50,8 +32,9 @@
                 <span class="glyphicon glyphicon-envelope"></span>
                 <span class="glyphicon glyphicon-user"></span>
             </div>
-        </header>
+        </nav>
 
+        <!-- desktop box -->
         <article class="desktop">
             <div class="efect-corner">
                 <div class="left-corn"></div>
@@ -60,6 +43,7 @@
             </div>
         </article>
 
+        <!-- menu box -->
         <div class="modal-window">
             <div class="efect-corner">
                 <div class="left-corn"></div>
@@ -87,7 +71,7 @@
                 <div class="select-box"></div>
             </footer>
         </div>
-        <script src="./build/information.js"></script>
+        <script src="../build/information.js"></script>
 
         </script>
     </body>

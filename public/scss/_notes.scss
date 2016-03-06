@@ -1,16 +1,11 @@
 $sizex-note: 820px;
-@mixin config-note($w,$h,$color){
-    height: $h;
-    width: $w;
-    background: $color;
-}
 
 .header-note-btn{
     &:hover{
-        background: #ffff91;    
+        background: #ffff91;
         color: brown;
     }
-    
+
     background: #ffff99;
     color: black;
     border: 0px;
@@ -21,7 +16,7 @@ $sizex-note: 820px;
     padding: 0px 50px 0px 50px;
     border-top: 1px  lightgrey solid;
     text-align: right;
-    
+
     .note-btn{
         margin-top: 20px;
         margin-left: 5px;
@@ -32,12 +27,12 @@ $sizex-note: 820px;
 
         &:hover{
             background: linear-gradient(lightgray,white);
-        }    
+        }
     }
 }
 
 html body{
-    background-color: black;    
+    background-color: black;
 }
 
 .keep-app{
@@ -45,9 +40,9 @@ html body{
     @include config-note($sizex-note,450px,linear-gradient(#F2F2F2,#EEEEEE));
     padding: 50px;
     overflow-y: auto;
-    
+
     .simple-note{
-        
+
         &:focus{
             box-shadow: 0px 0px 10px 1px #71C6EE;
         }
@@ -60,8 +55,4 @@ html body{
         padding-left: 5px;
         box-shadow: 1px 4px 24px 1px gray;/*shadow fixed*/
     }
-    
 }
-
-
-

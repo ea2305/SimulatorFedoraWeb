@@ -1,50 +1,45 @@
-@mixin config-info($w,$h,$color){
-  width: $w;
-  height: $h;
-  background: $color;
-}
-
 .infoSystem-content{
-  @include config-info(630px,500px,#e9e9e9);
+  @include config(630px,500px,#e9e9e9);
   display: inline-flex;
 }
 
-
-
 .options-infoSystem{
-  @include config-info(25%,88%,#e9e9e9);
+  @include config(25%,88%,#e9e9e9);
   padding: 5% 20px 5% 20px;
-  
+
   .elements-info{
-    @include config-info(100%,100%,white);
+    @include config(100%,100%,white);
     border: #a6a6a6 solid 1px;
     border-radius: 5px;
-    
-    .item-info{
-      @include config-info(100%,5%,#3399ff);
+
+    @mixin config($w,$h,$color){
+      width: $w;
+      height: $h;
+      background: $color;
+    }    .item-info{
+      @include config(100%,5%,#3399ff);
       color: white;
       text-align: center;
       padding: 5% 0px 5% 0px;
-      
+
       font-family: 'OpenSans';
     }
-    
   }
 }
 
 .infoSystem-info{
-  
-  @include config-info(64%,88%,#e9e9e9);
+
+  @include config(64%,88%,#e9e9e9);
   padding: 3% 20px 7% 20px;
-  
+
   .info-system{
-    @include config-info(100%,100%,#e9e9e9);
+    @include config(100%,100%,#e9e9e9);
     text-align: center;
     .title-system{
         font-family: 'OpenSans';
         font-size: 25px;
         color: #2F69FF;
-        
+
     }
     .position-info{
       display: inline-flex;
@@ -55,16 +50,16 @@
         font-family: 'OpenSans';
         font-weight: bold;
         color: #a6a6a6;
-  
+
       }
-      
+
       .right-info{
         padding-left: 3%;
         text-align: left;
         font-family: Helvetica;
         font-weight: bold;
         color: black;
-        
+
         input{
             margin-top: 3%;
             margin-bottom: 3%;
@@ -74,7 +69,7 @@
         }
       }
     }
-    
+
     img{
       margin-top: 4%;
       width: 100px;
