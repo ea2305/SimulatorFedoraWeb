@@ -23,3 +23,7 @@ body{
 .user-img{
     @include config(20px,20px,none);
 }
+
+.hide{
+    display: none;
+}

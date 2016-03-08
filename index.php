@@ -1,3 +1,13 @@
+<?php
+    //Include class conexion
+    include ("conexion.php");
+
+    //Instance
+    $A = new Conexion("WebProject","localhost","root"," ");
+    $A -> connectDB();//Call conection
+    $usersList = $A -> getUsers();
+    echo $usersList;
+ ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -6,8 +16,8 @@
         <link rel="stylesheet" href="./public/css/home.css">
 
         <!-- reactJS -->
-        <script src="./public/js/reactJS/react.min.js"></script>
-        <script src="./public/js/reactJS/react-dom.min.js"></script>
+        <script src="./public/js/reactJS/react.js"></script>
+        <script src="./public/js/reactJS/react-dom.js"></script>
 
         <title>Simulation OS</title>
     </head>
@@ -17,5 +27,12 @@
             <section id="menu"></section>
         </section>
         <script src="./build/formulary.js"></script>
+        <script type="text/javascript">
+            loadForm(
+                <?php echo $usersList ?>
+            );
+        </script>
+
+
     </body>
 </html>

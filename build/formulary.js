@@ -5,14 +5,15 @@
 */
 
 var Users = { //Data of users
-    "users": [{
-        "name": "Elihu",
-        "img": "./public/img/icon/pokemon.png"
-    }, {
-        "name": "Invited",
-        "img": ""
-    }]
+    "users": []
 };
+
+function loadForm(users) {
+    alert(users);
+    Users = { "users": users };
+    //Call the principal view login.
+    viewLogin();
+}
 
 var Formulary = React.createClass({
     displayName: "Formulary",
@@ -20,10 +21,19 @@ var Formulary = React.createClass({
     returnSelect: function () {
         viewLogin(); //Return to selector
     },
-
+    getInitialState: function () {
+        return {
+            password: '',
+            data: this.props.data
+        };
+    },
+    handleChange: function (event) {
+        this.setState({
+            password: event.target.value,
+            data: this.props.data
+        });
+    },
     render: function () {
-        data = this.props.data;
-        //console.log(data);
         //Render component
         return React.createElement(
             "article",
@@ -31,11 +41,11 @@ var Formulary = React.createClass({
             React.createElement(
                 "div",
                 { className: "picture-login" },
-                React.createElement("img", { className: "user-img", src: data.img, alt: "" }),
+                React.createElement("img", { className: "user-img", src: this.state.data.img, alt: "" }),
                 React.createElement(
                     "p",
                     { className: "text-login" },
-                    data.name
+                    this.state.data.user
                 )
             ),
             React.createElement(
@@ -43,7 +53,9 @@ var Formulary = React.createClass({
                 { className: "login-form", action: "index.html", method: "post" },
                 "Password:",
                 React.createElement("br", null),
-                React.createElement("input", { id: "password", type: "password", name: "password", value: "" }),
+                React.createElement("input", { className: "hide", id: "text", type: "name", name: "name", value: this.state.data.user }),
+                React.createElement("br", null),
+                React.createElement("input", { id: "password", type: "password", name: "password", value: this.state.Password, onChange: this.handleChange }),
                 React.createElement("br", null),
                 React.createElement("input", { type: "button", name: "cancel", value: "Cancel", onClick: this.returnSelect }),
                 React.createElement("input", { type: "submit", name: "send", value: "Sing in" })
@@ -75,7 +87,7 @@ var UserSelector = React.createClass({
                     //Set event to call login, send json
                     React.createElement(
                         "div",
-                        { onClick: this.selectUser.bind(this, element) },
+                        { key: index, onClick: this.selectUser.bind(this, element) },
                         React.createElement("img", { className: "user-img", src: element.img, alt: "" }),
                         React.createElement(
                             "p",
@@ -97,5 +109,3 @@ function viewLogin() {
 function viewForm(user) {
     ReactDOM.render(React.createElement(Formulary, { data: user }), document.getElementById("menu"));
 }
-//Call the principal view login.
-viewLogin();
