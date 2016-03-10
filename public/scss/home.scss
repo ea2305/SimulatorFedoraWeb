@@ -1,29 +1,79 @@
 @import "functions";
+
+@font-face{
+    font-family: 'OpenSans';
+    src: url('../fonts/OpenSans-Regular.ttf');
+}
+@font-face{
+    font-family: 'OpenSans-Light';
+    src: url('../fonts/OpenSans-Light.ttf');
+}
+
 $FormX : 40%;
 $FormY : 10vh;
+
+*{
+    margin : 0px;
+    padding : 0px;
+}
 
 body{
     background: #2A2A2B;
     width : 100%;
     color : white;
-}
 
-.parent-box{
-    position : relative;
-    display : flex;
-    flex-flow: row wrap;
-}
+    /*All windown parent*/
+    .parent-box{
+        position : relative;
+        padding: 20% 35% 20% 35%;
+    }
 
-.login-form{
-    @include config($FormX,$FormY,none);
-    align-content: center;
-    border: solid 1px white;
-}
+    .render-box{
 
-.user-img{
-    @include config(20px,20px,none);
-}
+        .select-user{
 
-.hide{
-    display: none;
+            height: 20%;
+
+            .card-user{
+                display: flex;
+                background-color: rgba(0, 1, 0, .5);
+                padding: .3rem;
+                border-radius: .2rem;
+                margin-bottom: 3px;
+                //Animations
+                -webkit-transition : all .3s;
+                        transition : all .3s;
+
+                &:hover{
+                    -webkit-transition : all .3s;
+                            transition : all .3s;
+                    background-color: rgba(35, 149, 242, 0.61);
+                }
+
+                p{
+                    padding: 7% 0% 0% 7%;
+                    font-size: 1rem;
+                    font-family: 'OpenSans';
+                }
+            }
+        }
+
+        .login-form{
+            @include config($FormX,$FormY,none);
+            border: solid 1px white;
+
+            .picture-login{
+                color : white;
+            }
+        }
+
+        .user-img{
+            @include config(5rem,5rem,none);
+        }
+    }
+
+    .hide{
+        display: none;
+    }
+
 }

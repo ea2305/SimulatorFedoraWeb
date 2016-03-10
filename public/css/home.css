@@ -4,32 +4,76 @@
 /*
     Mixins of styleBox
 */
+@font-face {
+  font-family: 'OpenSans';
+  src: url("../fonts/OpenSans-Regular.ttf");
+}
+
+@font-face {
+  font-family: 'OpenSans-Light';
+  src: url("../fonts/OpenSans-Light.ttf");
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
 body {
   background: #2A2A2B;
   width: 100%;
   color: white;
+  /*All windown parent*/
 }
 
-.parent-box {
+body .parent-box {
   position: relative;
-  display: flex;
-  flex-flow: row wrap;
+  padding: 20% 35% 20% 35%;
 }
 
-.login-form {
+body .render-box .select-user {
+  height: 20%;
+}
+
+body .render-box .select-user .card-user {
+  display: flex;
+  background-color: rgba(0, 1, 0, 0.5);
+  padding: .3rem;
+  border-radius: .2rem;
+  margin-bottom: 3px;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+
+body .render-box .select-user .card-user:hover {
+  -webkit-transition: all .3s;
+  transition: all .3s;
+  background-color: rgba(35, 149, 242, 0.61);
+}
+
+body .render-box .select-user .card-user p {
+  padding: 7% 0% 0% 7%;
+  font-size: 1rem;
+  font-family: 'OpenSans';
+}
+
+body .render-box .login-form {
   width: 40%;
   height: 10vh;
   background: none;
-  align-content: center;
   border: solid 1px white;
 }
 
-.user-img {
-  width: 20px;
-  height: 20px;
+body .render-box .login-form .picture-login {
+  color: white;
+}
+
+body .render-box .user-img {
+  width: 5rem;
+  height: 5rem;
   background: none;
 }
 
-.hide {
+body .hide {
   display: none;
 }

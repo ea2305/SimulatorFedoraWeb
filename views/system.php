@@ -3,6 +3,16 @@
     author : Elihu Alejandro Cruz Albores
     version : 1.0.3
  -->
+ <?php //Vaidation of sesion is active
+     session_start();
+     //If session doesn't exist
+     if (!isset($_SESSION['name'])){
+         header("Location: ../index.php");
+         exit();
+     }else {
+         //Logeadno correctamente
+     }
+?>
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -16,7 +26,14 @@
     </head>
     <body >
         <!-- Container of react component -->
-        <div id="react"></div>
+        <div id="react">
+            <div class="container-info">
+                <h3>Manage Users</h1>
+                <button type="button" name="add">Add user</button>
+                <button type="button" name="remove">Remove user</button>
+                <button type="button" name="edit">Edit user</button>
+            </div>
+        </div>
 
         <!-- Bar of navegation -->
         <nav class="bar">
@@ -71,8 +88,6 @@
                 <div class="select-box"></div>
             </footer>
         </div>
-        <script src="../build/information.js"></script>
-
-        </script>
+        <input type="text" name="name" value="">
     </body>
 </html>

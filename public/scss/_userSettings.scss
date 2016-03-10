@@ -1,0 +1,37 @@
+@import "functions";
+$max-size-selector : 500px;
+$min-size-selector : 600px;
+
+.container-info{//parent style
+    @include config(200px,200px,white);
+    button{
+        display: block;
+    }
+}
+
+.card-user{
+    display: flex;
+    background-color: rgba(0, 1, 0, .5);
+    padding: .3rem;
+    border-radius: .2rem;
+    margin-bottom: 3px;
+    @include config($max-size-selector,60px,none);
+    //Animations
+    -webkit-transition : all .3s;
+            transition : all .3s;
+
+    &:hover{
+        -webkit-transition : all .3s;
+                transition : all .3s;
+        background-color: rgba(35, 149, 242, 0.61);
+    }
+
+    p{
+        padding: 7% 0% 0% 7%;
+        font-size: 1rem;
+        font-family: 'OpenSans';
+    }
+    .user-img{
+        @include config(5rem,5rem,none);
+    }
+}

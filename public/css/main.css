@@ -473,6 +473,53 @@ h4 {
   text-align: left;
 }
 
+/*Set generic configurations*/
+/*Configuration of btn on calculator*/
+/*Parameters of notes on noteApp*/
+/*
+    Mixins of styleBox
+*/
+.container-info {
+  width: 200px;
+  height: 200px;
+  background: white;
+}
+
+.container-info button {
+  display: block;
+}
+
+.card-user {
+  display: flex;
+  background-color: rgba(0, 1, 0, 0.5);
+  padding: .3rem;
+  border-radius: .2rem;
+  margin-bottom: 3px;
+  width: 500px;
+  height: 60px;
+  background: none;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+
+.card-user:hover {
+  -webkit-transition: all .3s;
+  transition: all .3s;
+  background-color: rgba(35, 149, 242, 0.61);
+}
+
+.card-user p {
+  padding: 7% 0% 0% 7%;
+  font-size: 1rem;
+  font-family: 'OpenSans';
+}
+
+.card-user .user-img {
+  width: 5rem;
+  height: 5rem;
+  background: none;
+}
+
 /*
     import fonts to generic directory
     Convert box on content

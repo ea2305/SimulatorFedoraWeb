@@ -1,9 +1,9 @@
 # Simulation OS "Fedora"
 
 ## Requeriments:
-* npm 
+* npm
 * prepros, optional to convert sass in css
 
 ## Instructions:
 
-	Actually, launch index.html to lunch the simulation. compenets're loaded with interface
+	Actually, launch index.html to lunch the simulation. componets're loaded with interface
