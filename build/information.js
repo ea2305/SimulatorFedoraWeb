@@ -35,8 +35,8 @@ function callSceneInformation(target_id) {
                         React.createElement(
                             "figure",
                             null,
-                            React.createElement("img", { src: "./public/img/icon/fedora.png", alt: "fedora" }),
-                            React.createElement("img", { src: "./public/img/icon/upchiapas.png", alt: "fedora" })
+                            React.createElement("img", { src: "../public/img/icon/fedora.png", alt: "fedora" }),
+                            React.createElement("img", { src: "../public/img/icon/upchiapas.png", alt: "fedora" })
                         ),
                         React.createElement(
                             "p",
@@ -48,6 +48,11 @@ function callSceneInformation(target_id) {
                             { className: "position-info" },
                             React.createElement(LineData, { data: this.props.data })
                         )
+                    ),
+                    React.createElement(
+                        "p",
+                        null,
+                        "11 / Marzo / 2016"
                     )
                 )
             );

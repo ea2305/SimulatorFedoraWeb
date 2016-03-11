@@ -9,7 +9,8 @@ var activity = [];//Process actives
 var startApp = (app) => {
     switch(app){
         case 'calculator' :
-            Launch(app,app_1,'Basic Mode');
+            Launch(app,'Basic Mode');
+            $('#scene_' + (process++)).append(app_1);
             startCalculator();
             break;
         case 'notes' :
@@ -21,6 +22,12 @@ var startApp = (app) => {
             Launch(app,'Information');
             //startInfo();
             callSceneInformation("scene_" + (process++));
+            break;
+        case 'userSetting' :
+        console.log('kffff');
+            Launch(app,'UserSetting');
+            //startInfo();
+            callUserSettings("scene_" + (process++));
             break;
     }
 }

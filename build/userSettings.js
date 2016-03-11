@@ -62,45 +62,60 @@ function callUserSettings(target_id) {
 
         addUser: function () {
             console.log("agregar usuario");
+            console.log(this.state);
             var data = this.getData();
-            var dataString = 'name=' + data.name + '&password=' + data.password + '&email=' + data.email + "&state=" + data.state;
-
-            $.ajax({
-                type: "POST",
-                url: "../models/addUsers.php",
-                data: dataString,
-                cache: false,
-                success: function (result) {
-                    alert(result);
+            if (data.name.length > 0 && data.password.length > 0 && data.email.length > 0) {
+                if (!emailValidation(data.email)) {
+                    alert("Correo no valido");return "";
                 }
-            });
+                var dataString = 'name=' + data.name + '&password=' + data.password + '&email=' + data.email + "&state=" + data.state;
+                //Hardcoding
+                $.ajax({
+                    type: "POST",
+                    url: "../models/addUsers.php",
+                    data: dataString,
+                    cache: false,
+                    success: function (result) {
+                        alert(result);
+                    }
+                });
+                renderOptions(); //return to menu
+            } else {
+                    alert('Campos vacios!');
+                }
         },
 
         editUser: function () {
-            console.log("agregar usuario");
             var data = this.getData();
-            var dataString = 'name=' + data.name + '&password=' + data.password + '&email=' + data.email + "&state=" + data.state;
-
-            $.ajax({
-                type: "POST",
-                url: "../models/editUsers.php",
-                data: dataString,
-                cache: false,
-                success: function (result) {
-                    alert(result);
+            if (data.name.length > 0 && data.password.length > 0 && data.email.length > 0) {
+                if (!emailValidation(data.email)) {
+                    alert("Correo no valido");return "";
                 }
-            });
+                var dataString = 'name=' + data.name + '&password=' + data.password + '&email=' + data.email + "&state=" + data.state + "&id=" + parseInt(this.props.data.id);
+
+                $.ajax({
+                    type: "POST",
+                    url: "../models/editUsers.php",
+                    data: dataString,
+                    cache: false,
+                    success: function (result) {
+                        alert(result);
+                    }
+                });
+            } else {
+                alert('Campos Vacios');
+            }
         },
 
-        renderOptions: function () {
-            renderOptions();
-        },
         handleChange: function (index, event) {
             var option = index.toString();
             var current = new Array();
             var name = $('#name').val();
             var pass = $('#password').val();
             var email = $('#email').val();
+
+            var state = [0, 1];
+
             switch (option) {
                 case '1':
                     current = [event.target.value, pass, email];
@@ -111,13 +126,24 @@ function callUserSettings(target_id) {
                 case '3':
                     current = [name, pass, event.target.value];
                     break;
+                case '4':
+                    current = [name, pass, email, state];
+                    state = [1, 0];
+                    break;
+                case '5':
+                    current = [name, pass, email, state];
+                    state = [0, 1];
+                    break;
                 default:
                     break;
             }
             this.setState({
                 name: current[0],
                 password: current[1],
-                email: current[2]
+                email: current[2],
+                state_a: state[0],
+                state_b: state[1]
+
             });
         },
 
@@ -130,8 +156,8 @@ function callUserSettings(target_id) {
                     name: '',
                     password: '',
                     email: '',
-                    state_a: 1,
-                    state_b: 0
+                    state_a: 0,
+                    state_b: 1
                 };
             } else {
 
@@ -162,6 +188,9 @@ function callUserSettings(target_id) {
             }
         },
 
+        renderOptions: function () {
+            renderOptions();
+        },
         render: function () {
             return React.createElement(
                 "section",
@@ -176,7 +205,7 @@ function callUserSettings(target_id) {
                     null,
                     "Name"
                 ),
-                React.createElement("input", { id: "name", type: "text", name: "name", value: this.state.name, onChange: this.handleChange.bind(this, 1) }),
+                React.createElement("input", { id: "name", type: "require", name: "name", value: this.state.name, onChange: this.handleChange.bind(this, 1) }),
                 React.createElement("br", null),
                 React.createElement(
                     "p",
@@ -192,8 +221,12 @@ function callUserSettings(target_id) {
                 ),
                 React.createElement("input", { id: "email", type: "email", name: "email", value: this.state.email, onChange: this.handleChange.bind(this, 3) }),
                 React.createElement("br", null),
-                React.createElement("input", { id: "admin-c", type: "radio", name: "radios", value: "Administrador", checked: this.state.state_a }),
-                React.createElement("input", { id: "user-c", type: "radio", name: "radios", value: "Usuario", checked: this.state.state_b }),
+                React.createElement("input", { id: "admin-c", type: "radio", name: "radios", value: "Administrador", checked: this.state.state_a, onChange: this.handleChange.bind(this, 4) }),
+                "Administrador",
+                React.createElement("br", null),
+                React.createElement("input", { id: "user-c", type: "radio", name: "radios", value: "Usuario", checked: this.state.state_b, onChange: this.handleChange.bind(this, 5) }),
+                "Usuario",
+                React.createElement("br", null),
                 React.createElement(
                     "button",
                     { type: "button", name: "action", onClick: this.switcher },
@@ -218,7 +251,8 @@ function callUserSettings(target_id) {
 
         removeUser: function () {
             console.log("Preparado a eliminar");
-            var dataString = 'name=' + this.props.data.name + '&img=' + this.props.data.img;
+            console.log(this.props.data.id);
+            var dataString = 'name=' + this.props.data.name + '&id=' + this.props.data.id;
 
             $.ajax({
                 type: "GET",
@@ -229,6 +263,7 @@ function callUserSettings(target_id) {
                     alert(result);
                 }
             });
+            renderOptions();
         },
         handleChange: function (index, event) {
             var option = index.toString();
@@ -384,7 +419,6 @@ function callUserSettings(target_id) {
         } else if (mode == 2) {
             ReactDOM.render(React.createElement(UserSelector, { mode: mode }), document.getElementById(target_id));
         } else {
-            //        ReactDOM.render(<SetUsers mode={mode} data={""}/>,document.getElementById("react"));
             ReactDOM.render(React.createElement(UserSelector, { mode: mode }), document.getElementById(target_id));
         }
     }
@@ -393,5 +427,15 @@ function callUserSettings(target_id) {
         ReactDOM.render(React.createElement(UserSettings, null), document.getElementById(target_id));
     }
 
+    function emailValidation(email) {
+        expr = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+        if (!expr.test(email)) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
     ReactDOM.render(React.createElement(UserSettings, null), document.getElementById(target_id));
+    closeWindow(); //End component
 }

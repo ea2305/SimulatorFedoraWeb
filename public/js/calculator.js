@@ -16,12 +16,12 @@ function startCalculator(){
 
     /*Funciiones de pormpt*/
     var addPrompt = (value) => {
-        
+
         if(conditions[0]){//Condicion para reiniciar por operacion
-            clearAll(); 
+            clearAll();
             conditions = [false,false];
         }
-        
+
         if(value != '.'){
             $('#divPrompt').append(value)
         }
@@ -29,7 +29,7 @@ function startCalculator(){
         if(value == '.' && !conditions[1]){
             conditions[1] = true;
             $('#divPrompt').append(value)
-        }   
+        }
         limit++;
     }
 
@@ -37,12 +37,12 @@ function startCalculator(){
         var prompt = $('#divPrompt').html();
         var size = prompt.length;
         if(size > 0){
-            
+
             if(prompt.charAt(size - 1) === '.'){//Verificamos si el elemento a borrar es un punto
                 conditions[1] = false;
             }
             var new_prompt = prompt.substring(0,size - 1);
-            $('#divPrompt').text(new_prompt);   
+            $('#divPrompt').text(new_prompt);
             limit--;
         }
     }
@@ -68,9 +68,9 @@ function startCalculator(){
     //Funciones arimeticas
     var actionFunction = (e) => {
         console.log(e + ' : ' + opType);
-        
+
         if(opType != -1){//Regresamos si no se detecto una operacion previa
-            resultado(false);         
+            resultado(false);
         }
 
         if(e > 4 && e < 7){//Acciones de una sola presion
@@ -78,10 +78,10 @@ function startCalculator(){
             resultado(false)//Metodo de conversion directa.
             return;//Salimos
         }
-        
+
         var temp = $('#divPrompt').html();//Almacenar datos
         if(temp.length != 0){
-            Element_A = temp; 
+            Element_A = temp;
             conditions[0] = true;
             opType = e;
         }
@@ -89,16 +89,16 @@ function startCalculator(){
 
 
     var resultado = (button_e) =>{
-        
+
         if(opType == -1){return;}//Retornamos si no hay metodo.
-        
+
         Element_B = $('#divPrompt').html();
-        
+
         if(Element_B.trim() == ''){return;}//Verificamos que el prompt no este vacio
-        
+
         Element_A = parseFloat(Element_A);//Otenemos parte numerica
         Element_B = parseFloat(Element_B);//Parse
-        
+
         switch(opType){
             case 1:
                 insert((Element_A + Element_B));
@@ -147,7 +147,7 @@ function startCalculator(){
         process--;
         activity.pop();
     });
-    
+
         //Handlers
     $('#btn0').mousedown(() => {addPrompt(0)});
     $('#btn1').click(() => {addPrompt(1)});
@@ -171,4 +171,6 @@ function startCalculator(){
     $('#module').click(() => {actionFunction(7)});
     $('#removeAll').click(() => {restart()});
     $('#igual').click(() => {resultado(true)});
+
+    closeWindow();//End component
 }

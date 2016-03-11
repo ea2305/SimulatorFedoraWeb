@@ -45,7 +45,7 @@
                 return "Error";
             }
 
-            $query = "SELECT name,img FROM Users";
+            $query = "SELECT * FROM Users";
             $res = mysql_query($query,$this->link);
 
             if (!$res) {
@@ -54,7 +54,7 @@
             //Declaration of array to return
             $information = "";
             while ($fila = mysql_fetch_assoc($res)) {//for each of result set
-                $information = $information.',{ "name" : "'.$fila['name'].'", "img" : "'.$fila['img'].'"}' ;
+                $information = $information.',{"id" : "'.$fila['id'].'","name" : "'.$fila['name'].'", "img" : "'.$fila['img'].'", "email" : "'.$fila['email'].'", "password" : "'.$fila['password'].'", "state" : "'.$fila['state'].'"}';
             }
             mysql_close($this->link);
             return "[" . substr($information,1) . "]";
@@ -73,40 +73,29 @@
             if (!$res) {// Verifiacmos el error de conexion
                 mysql_error();
             }elseif (mysql_num_rows($res) <= 0) {// en caso de que no regrese resultados
-                header("Location: .index.php");
+                header("Location: ../index.php");
             }else {//Enviamos a menu
+                $fila = mysql_fetch_assoc($res);
                 session_start();
                 $_SESSION['name'] = $name;
                 $_SESSION['password'] = $pass;
+                $_SESSION['id'] = $fila['id'];
+                $_SESSION['state'] = $fila['state'];
                 header("Location: ../views/system.php");
             }
         }
 
-        public function removeUser($user, $img){
-            $img = substr($img,1);
+        public function removeUser($user, $id){
+            session_start();
             $this->connectDB();//Start conection
             if(!$this->link){ //Retronamos error al no conecctar
                 return "false";
             }
 
-            $query = "SELECT * FROM Users WHERE name LIKE '$user'";
-            $res = mysql_query($query,$this->link);
-
-            if (!$res) {
-                echo mysql_error();
-                return;
-            }
-            //Declaration of array to return
-            $information = "";
-            while ($fila = mysql_fetch_assoc($res)) {//for each of result set
-                if($fila['name'] == $user){
-                    $information = $fila['id'];
-                }else{ $information = -1;}
-            }
-
-            if ($information != -1){
-                $query = "DELETE FROM Users WHERE id LIKE $information";
+            if($_SESSION['id'] != $id && $_SESSION['name'] != $user){
+                $query = "DELETE FROM Users WHERE id LIKE $id";
                 $res = mysql_query($query,$this->link);
+                mysql_close($this->link);//Cerramos la conexion correctamente
 
                 if ($res) {// Verifiacmos el error de conexion
                     echo "Datos removidos correctamente";
@@ -114,9 +103,12 @@
                     echo mysql_error();;
                 }
             }else{
-                echo "Error";
+                mysql_close($this->link);//Cerramos la conexion correctamente
+                echo "No se puede eliminar el usuario actual";
+                return;
             }
-            mysql_close($this->link);
+
+
         }
 
         public function addUser($name, $password, $email, $state){
@@ -138,7 +130,7 @@
             mysql_close($this->link);
         }
 
-        public function getAllData($name,$img){
+        public function getAllData($name){
             $this->connectDB();//Start conection
             if(!$this->link){ //Retronamos error al no conecctar
                 return "false";
@@ -153,22 +145,66 @@
             }
             //Declaration of array to return
             $information = "";
+
             while ($fila = mysql_fetch_assoc($res)) {//for each of result set
                 if($fila['name'] == $name){
-                    $information = $information.',{ "name" : "'.$fila['name'].'", "img" : "'.$fila['img'].'", "email" : "'.$fila['email'].'", "password" : "'.$fila['password'].'", "state" : "'.$fila['state'].'"}';
+
+                    $information = $information.',{ "id" : "'.$fila['id'].'","name" : "'.$fila['name'].'", "img" : "'.$fila['img'].'", "email" : "'.$fila['email'].'", "password" : "'.$fila['password'].'", "state" : "'.$fila['state'].'"}';
                 }else{ $information = -1;}
             }
+            mysql_close($this->link);
             return substr($information,1);
         }
 
-        public function editUser($name, $password, $email, $state){
+        public function getState($id){
+            $this->connectDB();//Start conection
+            if(!$this->link){ //Retronamos error al no conecctar
+                return "false";
+            }
+            $query = "SELECT state FROM Users WHERE id LIKE $id";
+            $res = mysql_query($query,$this->link);
+
+            if (!$res) {
+                echo mysql_error();
+                return;
+            }
+            mysql_close($this->link);
+            while ($fila = mysql_fetch_assoc($res)) {//for each of result set
+                return $fila['state'];
+            }
+            return "";
+        }
+
+        public function getId($name){
+            $this->connectDB();//Start conection
+            if(!$this->link){ //Retronamos error al no conecctar
+                return "false";
+            }
+
+            $query = "SELECT * FROM Users WHERE name LIKE '$name'";
+            $res = mysql_query($query,$this->link);
+
+            if (!$res) {
+                echo mysql_error();
+                return;
+            }
+
+            while ($fila = mysql_fetch_assoc($res)) {//for each of result set
+                if($fila['name'] == $name){return $fila['id'];}else{  return "";}
+            }
+            mysql_close($this->link);
+            return substr($information,1);
+        }
+
+
+        public function editUser($name, $password, $email, $state, $id){
 
             $this->connectDB();//Start conection
             if(!$this->link){ //Retronamos error al no conecctar
                 return "false";
             }
 
-            $query = "UPDATE `Users` SET `id`=NULL,`password`='$password',`email`='$email',`state`='$state' WHERE name LIKE '$name'";
+            $query = "UPDATE `Users` SET `id`=$id,`name` = '$name',`password`='$password',`email`='$email',`state`='$state' WHERE id LIKE $id ";
 
             $res = mysql_query($query,$this->link);
 
@@ -180,6 +216,87 @@
             mysql_close($this->link);
         }
 
+        public function getCurrentUser(){
+            session_start();
+            echo $_SESSION['name'];
+        }
+
+        public function getAllNotes($id){
+            $this->connectDB();//Start conection
+            if(!$this->link){ //Retronamos error al no conecctar
+                return "false";
+            }
+
+            $query = "SELECT * FROM Notes WHERE id LIKE '$id'";
+            $res = mysql_query($query,$this->link);
+
+            if (!$res) {
+                echo mysql_error();
+                return;
+            }
+            //Declaration of array to return
+            $information = "";
+            while ($fila = mysql_fetch_assoc($res)) {//for each of result set
+                if($fila['id'] == $id){
+                    $information = $information.',{ "id" : "'.$fila['id'].'", "text" : "'.$fila['text'].'", "key_note" : "'.$fila['key_note'].'"}';
+                }else{ $information = -1;}
+            }
+            mysql_close($this->link);
+            return ("[".substr($information,1)."]");
+        }
+
+        public function removeIdNote($id){
+
+            $this->connectDB();//Start conection
+            if(!$this->link){ //Retronamos error al no conecctar
+                return "false";
+            }
+
+            $query = "DELETE FROM Notes WHERE id LIKE $id";
+            $res = mysql_query($query,$this->link);
+
+            if ($res) {// Verifiacmos el error de conexion
+                //echo "Datos removidos correctamente";
+            }else {// en caso de que no regrese resultados
+                echo mysql_error();;
+            }
+            mysql_close($this->link);
+        }
+
+        public function updateNotes($id,$text,$key_note){
+            $this->connectDB();//Start conection
+            if(!$this->link){ //Retronamos error al no conecctar
+                return "false";
+            }
+            $query = "INSERT INTO `Notes`(`id`, `text`, `key_note`) VALUES ('$id','$text','$key_note')";
+            //$query = "UPDATE `Notes` SET `id`='$id',`text`='$text',`key_note`='$key_note' WHERE id LIKE '$id' AND key_note LIKE '$key_note'";
+            $res = mysql_query($query,$this->link);
+
+            if ($res) {// Verifiacmos el error de conexion
+                echo "Datos actualizados correctamente";
+            }else {// en caso de que no regrese resultados
+                echo mysql_error();;
+            }
+            mysql_close($this->link);
+        }
+
+        public function removeNote($id,$key_note){
+
+            $this->connectDB();//Start conection
+            if(!$this->link){ //Retronamos error al no conecctar
+                return "false";
+            }
+
+            $query = "DELETE FROM Notes WHERE id LIKE $id AND key_note LIKE $key_note";
+            $res = mysql_query($query,$this->link);
+
+            if ($res) {// Verifiacmos el error de conexion
+                //echo "Datos removidos correctamente";
+            }else {// en caso de que no regrese resultados
+                echo mysql_error();;
+            }
+            mysql_close($this->link);
+        }
 
     }
 ?>

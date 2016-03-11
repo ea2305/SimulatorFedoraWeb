@@ -11,6 +11,29 @@ $(document).ready(() =>{
     var bar_clock = new Clock();
     document.getElementById('clock').innerHTML = bar_clock.formatTime;
 
+    //Close session
+    $('.glyphicon-user').click(()=>{
+        if($('#disconect').hasClass('hidden')){
+            $('#disconect').removeClass('hidden');
+        }else{
+            $('#disconect').addClass('hidden');
+        }
+    })
+
+    //Btn close session
+    $('#btn-logout').click(()=>{
+        $.ajax({
+            type: "POST",
+            url: "../models/logout.php",
+            data: "",
+            cache: false,
+            success: function(result){
+                alert(result);
+                window.location.href = "../index.php";
+            }
+        });
+    })
+
     //Initialize events
     $('.bar .activity-bar').click(function(){
         console.log(state);

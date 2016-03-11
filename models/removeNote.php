@@ -2,10 +2,11 @@
 
     include ("conexion.php");
 
-    $user = $_GET['name'];
+    $id          = $_POST['id'];
+    $key_note    = $_POST['key_note'];
 
     //Instance
     $Conection = new Conexion("WebProject","localhost","root"," ");
-    echo $Conection -> getAllData($user);
+    $data = $Conection -> removeNote($id,$key_note);
 
 ?>

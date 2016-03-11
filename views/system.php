@@ -10,7 +10,7 @@
          header("Location: ../index.php");
          exit();
      }else {
-         //Logeadno correctamente
+         //Logeado correctamente
      }
 ?>
 <!DOCTYPE html>
@@ -19,22 +19,19 @@
         <meta charset="UTF-8">
         <title>SimulatorOS</title>
         <?php
+
+            //$res = $Conection -> getAllData($_SESSION['name']);
             //Import and link elements
+            if($_SESSION['state'] == 1){
+                require "_adminApp.php";
+            }else{
+                require "_userApp.php";
+            }
             require "_header.php";
          ?>
 
     </head>
     <body >
-        <!-- Container of react component -->
-        <div id="react">
-            <div class="container-info">
-                <h3>Manage Users</h1>
-                <button type="button" name="add">Add user</button>
-                <button type="button" name="remove">Remove user</button>
-                <button type="button" name="edit">Edit user</button>
-            </div>
-        </div>
-
         <!-- Bar of navegation -->
         <nav class="bar">
             <div class="activity-bar">
@@ -88,6 +85,9 @@
                 <div class="select-box"></div>
             </footer>
         </div>
-        <input type="text" name="name" value="">
+
+        <div id="disconect" class="hidden disconect">
+            <button id="btn-logout" class="btn-white" type="button" name="logout">Log out</button>
+        </div>
     </body>
 </html>

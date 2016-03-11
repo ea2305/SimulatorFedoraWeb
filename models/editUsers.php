@@ -2,6 +2,7 @@
 
     include ("conexion.php");
 
+    $id     = $_POST['id'];
     $user     = $_POST['name'];
     $password = $_POST['password'];
     $email    = $_POST['email'];
@@ -9,6 +10,6 @@
 
     //Instance
     $Conection = new Conexion("WebProject","localhost","root"," ");
-    $data = $Conection -> editUser($user, $password, $email, $state);
+    $data = $Conection -> editUser($user, $password, $email, $state,$id);
 
 ?>

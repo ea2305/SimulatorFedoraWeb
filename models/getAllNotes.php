@@ -2,10 +2,10 @@
 
     include ("conexion.php");
 
-    $user = $_GET['name'];
+    $id = $_GET['id'];
 
     //Instance
     $Conection = new Conexion("WebProject","localhost","root"," ");
-    echo $Conection -> getAllData($user);
+    echo $Conection -> getAllNotes($id);
 
 ?>
