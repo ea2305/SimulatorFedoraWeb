@@ -9,10 +9,30 @@
         <script src="./public/js/reactJS/react.js"></script>
         <script src="./public/js/reactJS/react-dom.js"></script>
 
+        <!-- boostrap -->
+        <link rel="stylesheet" href="./public/css/bootstrap.min.css">
+        <script src="./public/js/bootstrap.min.js"></script>
+
         <title>Simulation OS</title>
     </head>
     <body>
-        <section id="tool-bar"></section>
+        <!-- Bar of navegation -->
+        <nav class="bar">
+            <div class="activity-bar">
+            </div>
+            <div class="action-bar">
+            </div>
+            <div class="utilities-bar">
+                <span class="glyphicon glyphicon-volume-up"></span>
+                <span class="glyphicon glyphicon-signal"></span>
+                <span class="glyphicon glyphicon-user"></span>
+            </div>
+        </nav>
+
+        <div class="logo-so">
+            <img src="./public/img/icon/fedora.png" alt="fedora" />
+        </div>
+
         <section class="parent-box">
             <!-- Call render function with react  -->
             <section id="menu" class="render-box"></section>

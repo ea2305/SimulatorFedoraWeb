@@ -520,6 +520,41 @@ h4 {
   background: none;
 }
 
+.user-box {
+  text-align: center;
+  width: 20vw;
+  height: 40vh;
+  background: #e9e9e9;
+  overflow-y: auto;
+}
+
+.user-box button {
+  border: .5px solid white;
+  border-radius: 10%;
+  color: black;
+  background: linear-gradient(#fafcf0, #cccccc);
+}
+
+.user-box button:hover {
+  background: linear-gradient(#fafcf0, #99b0f6);
+}
+
+.user-box img {
+  padding-top: 10%;
+}
+
+.btn-return {
+  margin: 2%;
+  border: .5px solid white;
+  border-radius: 10%;
+  color: black;
+  background: linear-gradient(#fafcf0, #cccccc);
+}
+
+.btn-return:hover {
+  background: linear-gradient(#fafcf0, #99b0f6);
+}
+
 /*
     import fonts to generic directory
     Convert box on content
@@ -651,6 +686,8 @@ html body .desktop {
 .disconect {
   position: absolute !important;
   z-index: 10001;
+  text-align: center;
+  border-radius: 3%;
   width: 20%;
   height: 35%;
   background: black;
@@ -659,6 +696,7 @@ html body .desktop {
 }
 
 .disconect .btn-white {
+  margin-top: 40%;
   color: white;
   border: white 1px solid;
   border-radius: 7%;

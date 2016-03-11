@@ -10,7 +10,7 @@ function callUserSettings(target_id) {
         render: function () {
             return React.createElement(
                 "section",
-                null,
+                { className: "user-box" },
                 React.createElement(
                     "button",
                     { type: "button", name: "add", onClick: this.changeToForm.bind(this, 1) },
@@ -25,7 +25,8 @@ function callUserSettings(target_id) {
                     "button",
                     { type: "button", name: "edit", onClick: this.changeToForm.bind(this, 3) },
                     "Edit user"
-                )
+                ),
+                React.createElement("img", { src: "../public/img/icon/install.png", alt: "install" })
             );
         }
     });
@@ -194,7 +195,7 @@ function callUserSettings(target_id) {
         render: function () {
             return React.createElement(
                 "section",
-                null,
+                { className: "user-box" },
                 React.createElement(
                     "h3",
                     null,
@@ -317,13 +318,13 @@ function callUserSettings(target_id) {
                 ),
                 React.createElement(
                     "button",
-                    { type: "button", name: "Return", onClick: this.renderOptions },
-                    "Cancel"
+                    { className: "pull-right", type: "button", name: "ReturnOptions", onClick: this.removeUser },
+                    "Borrar"
                 ),
                 React.createElement(
                     "button",
-                    { type: "button", name: "ReturnOptions", onClick: this.removeUser },
-                    "Borrar"
+                    { className: "pull-right", type: "button", name: "Return", onClick: this.renderOptions },
+                    "Cancel"
                 )
             );
         }
@@ -405,7 +406,7 @@ function callUserSettings(target_id) {
                 }, this),
                 React.createElement(
                     "button",
-                    { type: "button", name: "Return", onClick: this.renderOptions },
+                    { className: "pull-right btn-return", type: "button", name: "Return", onClick: this.renderOptions },
                     "Return"
                 )
             );

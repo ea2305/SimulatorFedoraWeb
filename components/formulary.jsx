@@ -43,7 +43,7 @@ var Formulary = React.createClass({
     render : function(){
         //Render component
         return (
-            <article >
+            <article className="formulary-so">
                 <div className="picture-login">
                     <img className="user-img" src={this.state.data.img} alt="" />
                     <p className="text-login">{this.state.data.name}</p>
@@ -51,9 +51,9 @@ var Formulary = React.createClass({
                 <form className="login-form" action="./models/login.php" method="post">
                     Password:<br/>
                     <input className="hide" id="text" type="text" name="name" value={this.state.data.name} /><br/>
-                    <input id="password" type="password" name="password" value={this.state.password} onChange={this.handleChange}/><br/>
-                    <input type="button" name="cancel" value="Cancel" onClick={this.returnSelect}/>
-                    <input type="submit" name="send" value="Sing in" onSubmit={this.sendForm}/>
+                    <input className="text-login" id="password" type="password" name="password" value={this.state.password} onChange={this.handleChange}/><br/>
+                    <input className="btn-form" type="button" name="cancel" value="Cancel" onClick={this.returnSelect}/>
+                    <input className="btn-form pull-right" type="submit" name="send" value="Sing in" onSubmit={this.sendForm}/>
                 </form>
             </article>
         );

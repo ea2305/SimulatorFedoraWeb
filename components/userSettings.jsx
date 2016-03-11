@@ -8,10 +8,11 @@ function callUserSettings(target_id){
         render : function(){
             return (
 
-                <section>
+                <section className="user-box">
                     <button type="button" name="add" onClick={this.changeToForm.bind(this,1)}>Add user</button>
                     <button type="button" name="remove" onClick={this.changeToForm.bind(this,2)}>Remove user</button>
                     <button type="button" name="edit" onClick={this.changeToForm.bind(this,3)}>Edit user</button>
+                    <img src="../public/img/icon/install.png" alt="install" />
                 </section>
 
             );
@@ -172,7 +173,7 @@ function callUserSettings(target_id){
         render : function(){
             return (
 
-                <section>
+                <section className="user-box">
                     <h3>{this.props.mode}</h3>
                     <p>Name</p>
                     <input id="name" type="require" name="name" value={this.state.name} onChange={this.handleChange.bind(this,1)}/><br/>
@@ -256,8 +257,9 @@ function callUserSettings(target_id){
                         <img className="user-img" src={this.props.data.img} alt="" />
                         <p>{this.props.data.name}</p>
                     </div>
-                    <button type="button" name="Return" onClick={this.renderOptions}>Cancel</button>
-                    <button type="button" name="ReturnOptions" onClick={this.removeUser}>Borrar</button>
+                    <button className="pull-right" type="button" name="ReturnOptions" onClick={this.removeUser}>Borrar</button>
+                    <button className="pull-right" type="button" name="Return" onClick={this.renderOptions}>Cancel</button>
+
                 </div>
 
 
@@ -333,7 +335,7 @@ function callUserSettings(target_id){
                     );
                 },this)
             }
-            <button type="button" name="Return" onClick={this.renderOptions}>Return</button>
+            <button className="pull-right btn-return" type="button" name="Return" onClick={this.renderOptions}>Return</button>
             </div>
             );
         }

@@ -46,7 +46,7 @@ var Formulary = React.createClass({
         //Render component
         return React.createElement(
             "article",
-            null,
+            { className: "formulary-so" },
             React.createElement(
                 "div",
                 { className: "picture-login" },
@@ -64,10 +64,10 @@ var Formulary = React.createClass({
                 React.createElement("br", null),
                 React.createElement("input", { className: "hide", id: "text", type: "text", name: "name", value: this.state.data.name }),
                 React.createElement("br", null),
-                React.createElement("input", { id: "password", type: "password", name: "password", value: this.state.password, onChange: this.handleChange }),
+                React.createElement("input", { className: "text-login", id: "password", type: "password", name: "password", value: this.state.password, onChange: this.handleChange }),
                 React.createElement("br", null),
-                React.createElement("input", { type: "button", name: "cancel", value: "Cancel", onClick: this.returnSelect }),
-                React.createElement("input", { type: "submit", name: "send", value: "Sing in", onSubmit: this.sendForm })
+                React.createElement("input", { className: "btn-form", type: "button", name: "cancel", value: "Cancel", onClick: this.returnSelect }),
+                React.createElement("input", { className: "btn-form pull-right", type: "submit", name: "send", value: "Sing in", onSubmit: this.sendForm })
             )
         );
     }

@@ -35,3 +35,35 @@ $min-size-selector : 600px;
         @include config(5rem,5rem,none);
     }
 }
+
+.user-box{
+    text-align: center;
+    @include config(20vw,40vh,rgb(233, 233, 233));
+    overflow-y: auto;
+
+    button{
+        &:hover{
+            background : linear-gradient(#fafcf0,#99b0f6);
+        }
+        border: .5px solid white;
+        border-radius: 10%;
+        color : black;
+        background : linear-gradient(#fafcf0,#cccccc);
+    }
+
+    img{
+        padding-top: 10%;
+    }
+}
+
+.btn-return{
+    &:hover{
+        background : linear-gradient(#fafcf0,#99b0f6);
+    }
+
+    margin : 2%;
+    border: .5px solid white;
+    border-radius: 10%;
+    color : black;
+    background : linear-gradient(#fafcf0,#cccccc);
+}
