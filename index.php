@@ -1,3 +1,10 @@
+<!--
+===============================================================
+    Simulation of OS Fedora, implementation of some functions
+    author : Elihu Alejandro Cruz Albores
+    version : 1.0.2
+===============================================================
+ -->
 <!DOCTYPE html>
 <html>
     <head>

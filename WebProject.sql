@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 07-03-2016 a las 09:29:20
+-- Tiempo de generación: 12-03-2016 a las 04:02:09
 -- Versión del servidor: 10.1.10-MariaDB
--- Versión de PHP: 7.0.4
+-- Versión de PHP: 5.6.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -27,11 +27,21 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `Notes` (
-  `id` int(100) NOT NULL,
-  `title` varchar(40) NOT NULL,
+  `id` smallint(6) NOT NULL,
   `text` text NOT NULL,
-  `note-key` int(100) NOT NULL
+  `key_note` smallint(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `Notes`
+--
+
+INSERT INTO `Notes` (`id`, `text`, `key_note`) VALUES
+(1, 'Realizar los bloqueos por regiones', 2),
+(1, 'Cosas por terminar en proyecto ...', 1),
+(13, 'nota', 1),
+(2, 'otra nota', 2),
+(2, 'Nueva nota para usuario invitado', 2);
 
 -- --------------------------------------------------------
 
@@ -53,7 +63,10 @@ CREATE TABLE `Users` (
 --
 
 INSERT INTO `Users` (`id`, `name`, `password`, `email`, `state`, `img`) VALUES
-(1, 'Elihu', '1234', 'ea_2305@hotmail.com', 1, './public/img/users/elihu.png');
+(0, 'Mono', '1234', 'mono@gmail.com', 0, './public/img/users/other.png'),
+(1, 'Elihu', '1234', 'ea_2305@hotmail.com', 1, './public/img/users/elihu.png'),
+(2, 'Invitado', '', 'invitado@gmail.com', 0, './public/img/users/invitado.png'),
+(13, 'Oscar Alejandro', 'oscar', 'oscar@hotmail.com', 0, './public/img/users/other.png');
 
 --
 -- Índices para tablas volcadas
@@ -73,7 +86,7 @@ ALTER TABLE `Users`
 -- AUTO_INCREMENT de la tabla `Users`
 --
 ALTER TABLE `Users`
-  MODIFY `id` smallint(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` smallint(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

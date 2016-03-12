@@ -1,7 +1,9 @@
 <!--
+===============================================================
     Simulation of OS Fedora, implementation of some functions
     author : Elihu Alejandro Cruz Albores
-    version : 1.0.3
+    version : 1.0.4
+===============================================================
  -->
  <?php //Vaidation of sesion is active
      session_start();

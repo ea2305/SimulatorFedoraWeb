@@ -1,13 +1,21 @@
 <?php
-    //Create conexion to data base
+/*
+========================================================================
+    Create conexion with Data Base.
+    *Content All method of logic.
+    author : Elihu Alejandro Cruz Albores.
+    version : 1.0.5
+========================================================================
+*/
     class Conexion{
 
         protected $db_name;//name db
         protected $route;// direcction to connect
-        protected $user_db;
-        protected $password_db;
-        protected $link;
+        protected $user_db;//User od db
+        protected $password_db;// password_db
+        protected $link;// Content the conexion fo db
 
+        //Call values of class
         public function __construct($db_name,$route,$user_db,$password_db){
             $this->db_name = $db_name;
             $this->route = $route;
@@ -16,6 +24,7 @@
 
         }
 
+        //Conect to DB and select db
         public function connectDB(){
             // Conectando, seleccionando la base de datos
             $this->link = mysql_connect($this->route, $this->user_db, $this->password_db)
@@ -23,14 +32,15 @@
                 $this->selectDB();
         }
 
+        //Conect with Table of DB
         public function selectDB(){
-
             if (!mysql_select_db($this->db_name, $this->link)) {
                 echo 'No pudo seleccionar la base de datos';
                 exit;
             }
         }
 
+        //Print given values
         public function printData(){
             echo $this->db_name.'<br>';
             echo $this->route.'<br>';
@@ -38,8 +48,8 @@
             echo $this->password_db.'<br>';
         }
 
+        //Call all users on db
         public function getUsers(){
-
             $this->connectDB();//Start conection
             if(!$this->link){ //Retronamos error al no conecctar
                 return "Error";
@@ -60,10 +70,10 @@
             return "[" . substr($information,1) . "]";
         }
 
+        //Compare if user is in db or no?
         public function isUser($name, $pass){
-
             $this->connectDB();//Start conection
-            if(!$this->link){ //Retronamos error al no conecctar
+            if(!$this->link){ //return data conection
                 return "false";
             }
 
@@ -74,7 +84,7 @@
                 mysql_error();
             }elseif (mysql_num_rows($res) <= 0) {// en caso de que no regrese resultados
                 header("Location: ../index.php");
-            }else {//Enviamos a menu
+            }else {//send menu
                 $fila = mysql_fetch_assoc($res);
                 session_start();
                 $_SESSION['name'] = $name;
@@ -85,6 +95,7 @@
             }
         }
 
+        //Remove user.
         public function removeUser($user, $id){
             session_start();
             $this->connectDB();//Start conection
@@ -107,12 +118,9 @@
                 echo "No se puede eliminar el usuario actual";
                 return;
             }
-
-
         }
 
         public function addUser($name, $password, $email, $state){
-
             $this->connectDB();//Start conection
             if(!$this->link){ //Retronamos error al no conecctar
                 return "false";
@@ -205,7 +213,6 @@
             }
 
             $query = "UPDATE `Users` SET `id`=$id,`name` = '$name',`password`='$password',`email`='$email',`state`='$state' WHERE id LIKE $id ";
-
             $res = mysql_query($query,$this->link);
 
             if ($res) {// Verifiacmos el error de conexion
@@ -220,7 +227,11 @@
             session_start();
             echo $_SESSION['name'];
         }
-
+/*
+================================================================================
+    Note methods
+================================================================================
+*/
         public function getAllNotes($id){
             $this->connectDB();//Start conection
             if(!$this->link){ //Retronamos error al no conecctar
@@ -281,12 +292,10 @@
         }
 
         public function removeNote($id,$key_note){
-
             $this->connectDB();//Start conection
             if(!$this->link){ //Retronamos error al no conecctar
                 return "false";
             }
-
             $query = "DELETE FROM Notes WHERE id LIKE $id AND key_note LIKE $key_note";
             $res = mysql_query($query,$this->link);
 

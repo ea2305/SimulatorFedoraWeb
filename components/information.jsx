@@ -1,3 +1,12 @@
+/*
+================================================================================
+    FOMRULARY COMPENENT
+    Start all methods of login and change view
+    author : Elihu A. Cruz Albores
+    version : 1.0.5
+================================================================================
+*/
+
 function callSceneInformation(target_id){
     var dataSystem = {//Temporal definition
         "tag":[

@@ -1,4 +1,12 @@
 <?php
+/*
+================================================================================
+    REQUEST OF UPDATE USERS
+    -> GET VALUES WITH AJAX
+    author : ELihu Alejandro Cruz Albores
+    version : 1.0.4
+================================================================================
+*/
 
     include ("conexion.php");
 

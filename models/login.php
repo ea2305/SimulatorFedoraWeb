@@ -1,4 +1,12 @@
 <?php
+/*
+================================================================================
+    REQUEST OF LOGIN
+    -> GET VALUES WITH AJAX
+    author : ELihu Alejandro Cruz Albores
+    version : 1.0.4
+================================================================================
+*/
 
     //Get user data
     $name_user = $_POST['name'];

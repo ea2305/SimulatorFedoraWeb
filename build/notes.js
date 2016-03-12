@@ -1,3 +1,12 @@
+/*
+================================================================================
+    NOTES COMPENENT
+    Start all methods of login and change view
+    author : Elihu A. Cruz Albores
+    version : 1.0.5
+================================================================================
+*/
+
 function callSceneNotes(target_id) {
     var stack_notes = [];
     var element = 0;
