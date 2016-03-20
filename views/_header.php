@@ -1,3 +1,4 @@
+
 <!-- Header configuration of system log -->
     <!-- Main scripts-->
     <script src="../public/js/jquery/jquery-1.12.0.min.js"></script>

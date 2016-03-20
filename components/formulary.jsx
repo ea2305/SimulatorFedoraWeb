@@ -51,7 +51,7 @@ var Formulary = React.createClass({
                     <img className="user-img" src={this.state.data.img} alt="" />
                     <p className="text-login">{this.state.data.name}</p>
                 </div>
-                <form className="login-form" action="./models/login.php" method="post">
+                <form className="login-form" action="./models/require/login.php" method="post">
                     Password:<br/>
                     <input className="hide" id="text" type="text" name="name" value={this.state.data.name} /><br/>
                     <input className="text-login" id="password" type="password" name="password" value={this.state.password} onChange={this.handleChange}/><br/>
@@ -71,7 +71,7 @@ var UserSelector = React.createClass({
         data = null;
         $.ajax({
             type: "POST",
-            url: "./models/getUsers.php",
+            url: "./models/require/getUsers.php",
             async: false,
             data: "",
             success: function (result){

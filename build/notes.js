@@ -30,7 +30,7 @@ function callSceneNotes(target_id) {
             var resultData = null;
             $.ajax({
                 type: "GET",
-                url: "../models/getAllNotes.php",
+                url: "../models/require/getAllNotes.php",
                 data: dataString,
                 async: false,
                 success: function (result) {
@@ -62,7 +62,7 @@ function callSceneNotes(target_id) {
             data = null;
             $.ajax({
                 type: "POST",
-                url: "../models/Im.php",
+                url: "../models/consult/Im.php",
                 async: false,
                 data: "",
                 success: function (result) {
@@ -78,7 +78,7 @@ function callSceneNotes(target_id) {
             var resultData = null;
             $.ajax({
                 type: "GET",
-                url: "../models/getAllData.php",
+                url: "../models/require/getAllData.php",
                 data: dataString,
                 async: false,
                 success: function (result) {
@@ -98,7 +98,7 @@ function callSceneNotes(target_id) {
 
             $.ajax({ //Remover usuarios
                 type: "POST",
-                url: "../models/removeIdNote.php",
+                url: "../models/require/removeIdNote.php",
                 data: dataString,
                 cache: false,
                 success: function (result) {
@@ -118,7 +118,7 @@ function callSceneNotes(target_id) {
                     var dataString = 'id=' + parseInt(content.id) + '&text=' + content.text + '&key_note=' + parseInt(content.key_note);
                     $.ajax({ //Remover usuarios
                         type: "POST",
-                        url: "../models/updateNotes.php",
+                        url: "../models/require/updateNotes.php",
                         data: dataString,
                         cache: false,
                         success: function (result) {//alert(result);
@@ -140,7 +140,7 @@ function callSceneNotes(target_id) {
             var dataString = 'id=' + parseInt(user.id) + '&key_note=' + parseInt(key_note);
             $.ajax({ //Remover usuarios
                 type: "POST",
-                url: "../models/removeNote.php",
+                url: "../models/require/removeNote.php",
                 data: dataString,
                 cache: false,
                 success: function (result) {

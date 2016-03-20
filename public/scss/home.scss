@@ -17,6 +17,7 @@
 
 $FormX : 40%;
 $FormY : 10vh;
+$render-box-h : 22vh;//Height render box
 
 *{
     margin : 0px;
@@ -31,12 +32,11 @@ body{
     /*All windown parent*/
     .parent-box{
         position : relative;
-        padding: 5% 35% 20% 35%;
+        padding: 20% 35% 10% 35%;
     }
 
     .logo-so{
         text-align: center;
-        padding-top: 5%;
         img{
             width: 10%;
             height: 10%;
@@ -44,7 +44,7 @@ body{
     }
 
     .render-box{
-        height: 22vh;
+        height: $render-box-h;
         overflow-y: auto;
 
         .select-user{
@@ -80,17 +80,50 @@ body{
         }
     }
 
-    .hide{
-        display: none;
+    .formulary-so{
+        img{
+            display: inline-block !important;
+        }
+        .text-login{
+            display: inline-block !important;
+            padding-left: 10% !important;
+        }
+        .login-form{
+            @include config(100%,100%,none);
+
+            .text-login{
+                width: 100%;
+                color: black;
+                border-radius: 10%;
+            }
+
+            .picture-login{
+                color : white;
+                p{
+                    display: inline-block;
+                    padding-left: 10%;
+                }
+            }
+
+            .btn-form{
+                text-align: center;
+                margin-top: 10%;
+                background: linear-gradient(rgb(59, 62, 58),rgb(70, 74, 72));
+                border: 1px solid rgb(50, 46, 50);
+                border-radius: 10%;
+                color: white;
+                padding: 5px;
+            }
+        }
     }
 
-}
 
+}
 
 .bar{
 
     /*style-color*/
-    background: linear-gradient(#181818,black);
+    background: transparent !important;
     height: 3%;
 
     .activity-bar{
@@ -117,43 +150,6 @@ body{
             }
             width: 4%;
             height: 100%;
-        }
-    }
-}
-
-.formulary-so{
-    img{
-        display: inline-block !important;
-    }
-    .text-login{
-        display: inline-block !important;
-        padding-left: 10% !important;
-    }
-    .login-form{
-        @include config(100%,100%,none);
-
-        .text-login{
-            width: 100%;
-            color: black;
-            border-radius: 10%;
-        }
-
-        .picture-login{
-            color : white;
-            p{
-                display: inline-block;
-                padding-left: 10%;
-            }
-        }
-
-        .btn-form{
-            text-align: center;
-            margin-top: 10%;
-            background: linear-gradient(rgb(59, 62, 58),rgb(70, 74, 72));
-            border: 1px solid rgb(50, 46, 50);
-            border-radius: 10%;
-            color: white;
-            padding: 5px;
         }
     }
 }

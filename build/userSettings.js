@@ -82,7 +82,7 @@ function callUserSettings(target_id) {
                 //Hardcoding
                 $.ajax({
                     type: "POST",
-                    url: "../models/addUsers.php",
+                    url: "../models/require/addUsers.php",
                     data: dataString,
                     cache: false,
                     success: function (result) {
@@ -105,7 +105,7 @@ function callUserSettings(target_id) {
 
                 $.ajax({
                     type: "POST",
-                    url: "../models/editUsers.php",
+                    url: "../models/require/editUsers.php",
                     data: dataString,
                     cache: false,
                     success: function (result) {
@@ -175,7 +175,7 @@ function callUserSettings(target_id) {
                 var resultData = null;
                 $.ajax({
                     type: "GET",
-                    url: "../models/getAllData.php",
+                    url: "../models/require/getAllData.php",
                     data: dataString,
                     async: false,
                     success: function (result) {
@@ -266,7 +266,7 @@ function callUserSettings(target_id) {
 
             $.ajax({
                 type: "GET",
-                url: "../models/removeUser.php",
+                url: "../models/require/removeUser.php",
                 data: dataString,
                 cache: false,
                 success: function (result) {
@@ -348,7 +348,7 @@ function callUserSettings(target_id) {
             data = null;
             $.ajax({
                 type: "POST",
-                url: "../models/getUsers.php",
+                url: "../models/require/getUsers.php",
                 async: false,
                 data: "",
                 success: function (result) {

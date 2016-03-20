@@ -35,20 +35,7 @@
     </head>
     <body >
         <!-- Bar of navegation -->
-        <nav class="bar">
-            <div class="activity-bar">
-                <span>Activities</span>
-            </div>
-            <div class="action-bar">
-                <span id="clock">Thuesday 28 January 2016</span>
-            </div>
-            <div class="utilities-bar">
-                <span class="glyphicon glyphicon-volume-up"></span>
-                <span class="glyphicon glyphicon-signal"></span>
-                <span class="glyphicon glyphicon-envelope"></span>
-                <span class="glyphicon glyphicon-user"></span>
-            </div>
-        </nav>
+        <div id="bar"></div>
 
         <!-- desktop box -->
         <article class="desktop">
@@ -71,7 +58,7 @@
                     Fedora 23
                 </div>
                 <div class="search-box">
-                    <input id="search-box" type="text" value=" Type to search...">
+                    <input id="search-box" type="text" placeholder=" Type to search...">
                     <div class="right-search"><span class="glyphicon glyphicon-search"></span></div>
                 </div>
             </div>
@@ -91,5 +78,7 @@
         <div id="disconect" class="hidden disconect">
             <button id="btn-logout" class="btn-white" type="button" name="logout">Log out</button>
         </div>
+
+        <script src="../build/login-bar.js" charset="utf-8"></script>
     </body>
 </html>

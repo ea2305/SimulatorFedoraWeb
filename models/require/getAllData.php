@@ -1,20 +1,18 @@
 <?php
 /*
 ================================================================================
-    REQUEST OF REMOVE USERS
+    REQUEST OF RETURN DATA
     -> GET VALUES WITH AJAX
     author : ELihu Alejandro Cruz Albores
     version : 1.0.4
 ================================================================================
 */
+    include ("../UserDB.php");
 
-    include ("conexion.php");
-
-    $id          = $_POST['id'];
-    $key_note    = $_POST['key_note'];
+    $user = $_GET['name'];
 
     //Instance
-    $Conection = new Conexion("WebProject","localhost","root"," ");
-    $data = $Conection -> removeNote($id,$key_note);
+    $Conection = new UserDB("WebProject","localhost","root"," ");
+    echo $Conection -> getAllData($user);
 
 ?>

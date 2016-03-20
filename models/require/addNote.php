@@ -1,18 +1,20 @@
 <?php
 /*
 ================================================================================
-    REQUEST OF EDIT USERS
+    REQUEST OF ADD NOTES
     -> GET VALUES WITH AJAX
     author : ELihu Alejandro Cruz Albores
     version : 1.0.4
 ================================================================================
 */
+    include ("../NoteDB.php");
 
-    include ("conexion.php");
+    $id     = $_POST['id'];
+    $text = $_POST['text'];
+    $key_note    = $_POST['key_note'];
 
-    $id = $_POST['id'];
     //Instance
-    $Conection = new Conexion("WebProject","localhost","root"," ");
-    $data = $Conection -> removeIdNote($id);
+    $Conection = new NoteDB("WebProject","localhost","root"," ");
+    $data = $Conection -> addNote($id,$text,$key_note);
 
 ?>

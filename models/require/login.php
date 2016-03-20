@@ -14,10 +14,10 @@
 //echo $name_user."-s-<br>";
 //echo $pass_user."-e-<br>";
 
-    include ("conexion.php");
+    include ("../UserDB.php");
 
     //Instance
-    $Conection = new Conexion("WebProject","localhost","root"," ");
+    $Conection = new UserDB("WebProject","localhost","root"," ");
     $data = $Conection -> isUser($name_user, $pass_user);
 
     echo $data;

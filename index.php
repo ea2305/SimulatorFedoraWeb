@@ -22,31 +22,22 @@
 
         <title>Simulation OS</title>
     </head>
+    <!-- Auto load components -->
     <body>
-        <!-- Bar of navegation -->
-        <nav class="bar">
-            <div class="activity-bar">
-            </div>
-            <div class="action-bar">
-            </div>
-            <div class="utilities-bar">
-                <span class="glyphicon glyphicon-volume-up"></span>
-                <span class="glyphicon glyphicon-signal"></span>
-                <span class="glyphicon glyphicon-user"></span>
-            </div>
-        </nav>
-
-        <div class="logo-so">
-            <img src="./public/img/icon/fedora.png" alt="fedora" />
-        </div>
+        <!-- set data inside -->
+        <div id="bar"></div>
 
         <section class="parent-box">
             <!-- Call render function with react  -->
             <section id="menu" class="render-box"></section>
         </section>
 
-        <!-- Requeriments of reactJS-->
-        <script src="./build/formulary.js"></script>
+        <div class="logo-so">
+            <img src="./public/img/icon/logo_fedora.png" alt="fedora" />
+        </div>
+
+        <?php require "./views/_reactLogin.php"?>
+
 
     </body>
 </html>

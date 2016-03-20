@@ -96,6 +96,8 @@ html body{
 }
 
 .disconect{
+    -webkit-transition: all .3s;
+            transition: all .3s;
     position: absolute !important;
     z-index: 10001;
     text-align: center;

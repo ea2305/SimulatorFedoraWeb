@@ -62,7 +62,7 @@ var Formulary = React.createClass({
             ),
             React.createElement(
                 "form",
-                { className: "login-form", action: "./models/login.php", method: "post" },
+                { className: "login-form", action: "./models/require/login.php", method: "post" },
                 "Password:",
                 React.createElement("br", null),
                 React.createElement("input", { className: "hide", id: "text", type: "text", name: "name", value: this.state.data.name }),
@@ -85,7 +85,7 @@ var UserSelector = React.createClass({
         data = null;
         $.ajax({
             type: "POST",
-            url: "./models/getUsers.php",
+            url: "./models/require/getUsers.php",
             async: false,
             data: "",
             success: function (result) {

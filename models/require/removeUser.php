@@ -1,16 +1,20 @@
 <?php
 /*
 ================================================================================
-    REQUEST OF GET VALUES
+    REQUEST OF REMOVE USERS
     -> GET VALUES WITH AJAX
     author : ELihu Alejandro Cruz Albores
     version : 1.0.4
 ================================================================================
 */
-    //Include class conexion
-    include ("conexion.php");
+
+    include ("../DB_User.php");
+
+    $user     = $_GET['name'];
+    $id      = $_GET['id'];
 
     //Instance
     $Conection = new Conexion("WebProject","localhost","root"," ");
-    $usersList = $Conection -> getCurrentUser();
- ?>
+    $data = $Conection -> removeUser($user, $id);
+
+?>

@@ -1,18 +1,21 @@
 <?php
 /*
 ================================================================================
-    REQUEST OF RETURN DATA
+    REQUEST OF UPDATE USERS
     -> GET VALUES WITH AJAX
     author : ELihu Alejandro Cruz Albores
     version : 1.0.4
 ================================================================================
 */
-    include ("conexion.php");
 
-    $user = $_GET['name'];
+    include ("../NoteDB.php");
+
+    $id       = $_POST['id'];
+    $text     = $_POST['text'];
+    $key_note = $_POST['key_note'];
 
     //Instance
-    $Conection = new Conexion("WebProject","localhost","root"," ");
-    echo $Conection -> getAllData($user);
+    $Conection = new NoteDB("WebProject","localhost","root"," ");
+    $data = $Conection -> updateNotes($id,$text,$key_note);
 
 ?>

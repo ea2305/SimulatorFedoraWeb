@@ -7,12 +7,12 @@
     version : 1.0.4
 ================================================================================
 */
-    include ("conexion.php");
+    include ("../NoteDB.php");
 
     $id = $_GET['id'];
 
     //Instance
-    $Conection = new Conexion("WebProject","localhost","root"," ");
+    $Conection = new NoteDB("WebProject","localhost","root"," ");
     echo $Conection -> getAllNotes($id);
 
 ?>

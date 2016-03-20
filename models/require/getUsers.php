@@ -8,10 +8,10 @@
 ================================================================================
 */
     //Include class conexion
-    include ("conexion.php");
+    include ("../UserDB.php");
 
     //Instance
-    $Conection = new Conexion("WebProject","localhost","root"," ");
+    $Conection = new UserDB("WebProject","localhost","root"," ");
     $usersList = $Conection -> getUsers();
     echo $usersList;
  ?>

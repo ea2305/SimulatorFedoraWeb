@@ -33,12 +33,11 @@ body {
 
 body .parent-box {
   position: relative;
-  padding: 5% 35% 20% 35%;
+  padding: 20% 35% 10% 35%;
 }
 
 body .logo-so {
   text-align: center;
-  padding-top: 5%;
 }
 
 body .logo-so img {
@@ -83,13 +82,49 @@ body .render-box .user-img {
   background: none;
 }
 
-body .hide {
-  display: none;
+body .formulary-so img {
+  display: inline-block !important;
+}
+
+body .formulary-so .text-login {
+  display: inline-block !important;
+  padding-left: 10% !important;
+}
+
+body .formulary-so .login-form {
+  width: 100%;
+  height: 100%;
+  background: none;
+}
+
+body .formulary-so .login-form .text-login {
+  width: 100%;
+  color: black;
+  border-radius: 10%;
+}
+
+body .formulary-so .login-form .picture-login {
+  color: white;
+}
+
+body .formulary-so .login-form .picture-login p {
+  display: inline-block;
+  padding-left: 10%;
+}
+
+body .formulary-so .login-form .btn-form {
+  text-align: center;
+  margin-top: 10%;
+  background: linear-gradient(#3b3e3a, #464a48);
+  border: 1px solid #322e32;
+  border-radius: 10%;
+  color: white;
+  padding: 5px;
 }
 
 .bar {
   /*style-color*/
-  background: linear-gradient(#181818, black);
+  background: transparent !important;
   height: 3%;
 }
 
@@ -155,44 +190,4 @@ body .hide {
 .bar .utilities-bar span:hover {
   transition: all .3s;
   color: white;
-}
-
-.formulary-so img {
-  display: inline-block !important;
-}
-
-.formulary-so .text-login {
-  display: inline-block !important;
-  padding-left: 10% !important;
-}
-
-.formulary-so .login-form {
-  width: 100%;
-  height: 100%;
-  background: none;
-}
-
-.formulary-so .login-form .text-login {
-  width: 100%;
-  color: black;
-  border-radius: 10%;
-}
-
-.formulary-so .login-form .picture-login {
-  color: white;
-}
-
-.formulary-so .login-form .picture-login p {
-  display: inline-block;
-  padding-left: 10%;
-}
-
-.formulary-so .login-form .btn-form {
-  text-align: center;
-  margin-top: 10%;
-  background: linear-gradient(#3b3e3a, #464a48);
-  border: 1px solid #322e32;
-  border-radius: 10%;
-  color: white;
-  padding: 5px;
 }
