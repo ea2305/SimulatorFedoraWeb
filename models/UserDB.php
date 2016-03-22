@@ -25,9 +25,11 @@
         public function isUser($name, $pass){
 
             if(!$this->isConnected()){return;}
-
+            /*
             $query = "SELECT * FROM Users WHERE name LIKE '$name' AND password LIKE '$pass'" ;
             $res = mysql_query($query,$this->link);
+            */
+            $res = $this->queryLoad("SELECT * FROM Users WHERE name LIKE '$name' AND password LIKE '$pass'");
 
             if (!$res) {// Verifiacmos el error de conexion
                 mysql_error();
@@ -83,11 +85,14 @@
             mysql_close($this->link);
         }
 
-        public function getAllData($name){
+        public function getAllData($id){
 
-            if(!$this->isConnected()){return;}
+            if(!$this->isConnected()){
+                echo "error";
+                return;
+            }
 
-            $query = "SELECT * FROM Users WHERE name LIKE '$name'";
+            $query = "SELECT * FROM Users WHERE id LIKE '$id'";
             $res = mysql_query($query,$this->link);
 
             if (!$res) {
@@ -96,15 +101,14 @@
             }
             //Declaration of array to return
             $information = "";
-
-            while ($fila = mysql_fetch_assoc($res)) {//for each of result set
-                if($fila['name'] == $name){
-
-                    $information = $information.',{ "id" : "'.$fila['id'].'","name" : "'.$fila['name'].'", "img" : "'.$fila['img'].'", "email" : "'.$fila['email'].'", "password" : "'.$fila['password'].'", "state" : "'.$fila['state'].'"}';
-                }else{ $information = -1;}
+            $data = array();
+            while ($row = mysql_fetch_assoc($res)) {//for each of result set
+                $data[] = $row;
+                //$information = $information.',{ "id" : "'.$fila['id'].'","name" : "'.$fila['name'].'", "img" : "'.$fila['img'].'", "email" : "'.$fila['email'].'", "password" : "'.$fila['password'].'", "state" : "'.$fila['state'].'"}';
             }
             mysql_close($this->link);
-            return substr($information,1);
+            //return substr($information,1);
+            return json_encode($data);
         }
 
         public function getState($id){
@@ -125,26 +129,6 @@
             return "";
         }
 
-        public function getId($name){
-
-            if(!$this->isConnected()){return;}
-
-            $query = "SELECT * FROM Users WHERE name LIKE '$name'";
-            $res = mysql_query($query,$this->link);
-
-            if (!$res) {
-                echo mysql_error();
-                return;
-            }
-
-            while ($fila = mysql_fetch_assoc($res)) {//for each of result set
-                if($fila['name'] == $name){return $fila['id'];}else{  return "";}
-            }
-            mysql_close($this->link);
-            return substr($information,1);
-        }
-
-
         public function editUser($name, $password, $email, $state, $id){
 
             if(!$this->isConnected()){return;}
@@ -162,8 +146,11 @@
 
         public function getCurrentUser(){
             session_start();
-            echo $_SESSION['name'];
+            echo $_SESSION['id'];
         }
 
+        private function queryLoad($query){
+            return mysql_query($query,$this->link);
+        }
     }
  ?>

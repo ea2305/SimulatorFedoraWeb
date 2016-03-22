@@ -39,5 +39,23 @@
                 exit;
             }
         }
+
+        protected function isConnected(){
+            $this->connectDB();//Start conection
+            return (isset($this->link)) ? true : false; //return response of connection
+        }
+
+        public function getItemsUser($mode){
+            $this->connectDB();
+            $query = "SELECT * FROM Applications WHERE mode LIKE '$mode'";
+            $res = mysql_query($query,$this->link);
+
+            $rows = array();
+            while($row = mysql_fetch_assoc($res)) {
+                $rows[] = $row;
+            }
+            return json_encode($rows);
+        }
+
     }
 ?>

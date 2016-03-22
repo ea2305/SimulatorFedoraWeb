@@ -42,6 +42,15 @@
             });
         },
 
+        openModal: function () {
+            //Load previusly modal jsx
+            if ($('#main-box').hasClass('box')) {
+                callDesktop();
+            } else {
+                callModal();
+            }
+        },
+
         getInitialState: function () {
             var option;
             $.ajax({
@@ -62,7 +71,7 @@
                 { className: 'bar' },
                 React.createElement(
                     'div',
-                    { className: 'activity-bar' },
+                    { className: 'activity-bar', onClick: this.openModal },
                     this.state.data
                 ),
                 React.createElement(

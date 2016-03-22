@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 12-03-2016 a las 04:02:09
+-- Tiempo de generación: 22-03-2016 a las 21:03:49
 -- Versión del servidor: 10.1.10-MariaDB
 -- Versión de PHP: 5.6.19
 
@@ -19,6 +19,34 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `WebProject`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `Applications`
+--
+
+CREATE TABLE `Applications` (
+  `id` smallint(6) NOT NULL,
+  `mode` int(11) NOT NULL,
+  `name` varchar(60) NOT NULL,
+  `img` varchar(80) NOT NULL,
+  `action` varchar(60) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `Applications`
+--
+
+INSERT INTO `Applications` (`id`, `mode`, `name`, `img`, `action`) VALUES
+(1, 1, 'Calculator', '../public/img/icon/calculator.png', 'startApp("calculator")'),
+(2, 1, 'Information', '../public/img/icon/desktop.png', 'startApp("information")'),
+(3, 1, 'User Settings', '../public/img/icon/notes.png', 'startApp("userSetting")'),
+(1, 0, 'Calculator', '../public/img/icon/calculator.png', 'startApp("calculator")'),
+(2, 0, 'Notes', '../public/img/icon/keep.png', 'startApp("notes")'),
+(3, 0, 'Information', '../public/img/icon/desktop.png', 'startApp("information")'),
+(4, 0, 'Text Editor', '../public/img/icon/starts.png', 'startApp("editor")'),
+(5, 0, 'Explorer', '../public/img/icon/explorer.png', 'startApp("explorer")');
 
 -- --------------------------------------------------------
 
@@ -86,7 +114,7 @@ ALTER TABLE `Users`
 -- AUTO_INCREMENT de la tabla `Users`
 --
 ALTER TABLE `Users`
-  MODIFY `id` smallint(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` smallint(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

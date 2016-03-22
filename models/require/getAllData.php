@@ -9,10 +9,10 @@
 */
     include ("../UserDB.php");
 
-    $user = $_GET['name'];
+    $id = $_GET['id'];
 
     //Instance
     $Conection = new UserDB("WebProject","localhost","root"," ");
-    echo $Conection -> getAllData($user);
+    echo $Conection -> getAllData($id);
 
 ?>

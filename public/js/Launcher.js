@@ -15,18 +15,20 @@ var startApp = (app) => {
             break;
         case 'notes' :
             Launch(app,'Notes');
-            //startNotes();
             callSceneNotes("scene_" + (process++));
             break;
+
+        case 'editor' :
+            Launch(app,'Text editor');
+            callSceneEditor("scene_" + (process++));
+            break;
+
         case 'information' :
             Launch(app,'Information');
-            //startInfo();
             callSceneInformation("scene_" + (process++));
             break;
         case 'userSetting' :
-        console.log('kffff');
             Launch(app,'UserSetting');
-            //startInfo();
             callUserSettings("scene_" + (process++));
             break;
     }

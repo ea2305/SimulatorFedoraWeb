@@ -3,16 +3,17 @@
     NOTES COMPENENT
     Start all methods of login and change view
     author : Elihu A. Cruz Albores
-    version : 1.0.5
+    version : 1.0.6
 ================================================================================
 */
 
 function callSceneNotes(target_id){
-    var stack_notes = []
-    var element = 0;
-    var select_note = "";
 
-    var cleanArray = (element) =>{
+    var stack_notes = []//Container notes
+    var element = 0;//Element note
+    var select_note = "";// Current note
+
+    var cleanArray = (element) =>{//CLear array of notes
         for(var i = 0; i < stack_notes.length ; i++){
             if(stack_notes[i] == element){
                 stack_notes.splice(i,1);
@@ -23,8 +24,11 @@ function callSceneNotes(target_id){
     var Notes = React.createClass({
 
         getInitialState : function(){
-            var user = this.getAllDataUser(this.getCurrentUser());
+            var dataUser = this.getCurrentUser();
+            var user = this.getAllDataUser(dataUser)[0];
+            console.log(user);
             var dataString = 'id='+ user.id;
+            console.log(dataString);
             var resultData = null;
             $.ajax({
                 type: "GET",
@@ -32,7 +36,6 @@ function callSceneNotes(target_id){
                 data: dataString,
                 async: false,
                 success: function(result){
-                    //alert(result);
                     resultData = JSON.parse(result);
                 }
             });
@@ -75,8 +78,8 @@ function callSceneNotes(target_id){
             return data;
         },
 
-        getAllDataUser : function(user){
-            var dataString = 'name='+ user;
+        getAllDataUser : function(id){
+            var dataString = 'id='+ id;
             var resultData = null;
             $.ajax({
                 type: "GET",
@@ -84,7 +87,6 @@ function callSceneNotes(target_id){
                 data: dataString,
                 async: false,
                 success: function(result){
-                    //alert(result);
                     resultData = JSON.parse(result);
                 }
             });

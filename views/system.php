@@ -38,42 +38,7 @@
         <div id="bar"></div>
 
         <!-- desktop box -->
-        <article class="desktop">
-            <div class="efect-corner">
-                <div class="left-corn"></div>
-                <div class="center-corn"></div>
-                <div class="right-corn"></div>
-            </div>
-        </article>
-
-        <!-- menu box -->
-        <div class="modal-window">
-            <div class="efect-corner">
-                <div class="left-corn"></div>
-                <div class="center-corn"></div>
-                <div class="right-corn"></div>
-            </div>
-            <div class="header-box">
-                <div class="info-box">
-                    Fedora 23
-                </div>
-                <div class="search-box">
-                    <input id="search-box" type="text" placeholder=" Type to search...">
-                    <div class="right-search"><span class="glyphicon glyphicon-search"></span></div>
-                </div>
-            </div>
-            <nav class="body-box">
-                <div class="items-box">
-                </div>
-                <div class="applications-box">
-                </div>
-                <div class="windows-box">
-                </div>
-            </nav>
-            <footer class="footer-box">
-                <div class="select-box"></div>
-            </footer>
-        </div>
+        <article id="main-box" class="desktop"></article>
 
         <div id="disconect" class="hidden disconect">
             <button id="btn-logout" class="btn-white" type="button" name="logout">Log out</button>

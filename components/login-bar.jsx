@@ -42,6 +42,15 @@
 
         },
 
+        openModal : function(){
+            //Load previusly modal jsx
+            if($('#main-box').hasClass('box')){
+                callDesktop();
+            }else{
+                callModal();
+            }
+        },
+
         getInitialState: function() {
             var option;
             $.ajax({
@@ -60,7 +69,7 @@
             return (
 
                 <nav className="bar">
-                    <div className="activity-bar">{this.state.data}</div>
+                    <div className="activity-bar" onClick={this.openModal}>{this.state.data}</div>
                     <div className="action-bar">
                         {this.props.date}
                     </div>
