@@ -1,11 +1,24 @@
-# Simulation OS "Fedora"
+# Fedora Simulation OS
 
-## Requeriments:
-* npm - For install JSX Trnsform
-* prepros, optional to convert sass in css
-* React JS - Include tranform in packages
+## Requeriments
 
-## Instructions:
+* Node.js with npm. problably with node version >= 3.5
+* PHP 5 - I recommend use a simple solution of LAMP like XAMP or MAMP to easy get start.
+* Prepos APP. the easiest way to convert SASS to CSS :p
 
-* Start Prepro if you want to changes styles.
-* Run build of npm for transform JSX component to ECMA script 6.
+> Also you can use npm tool added inside the node modules. Run
+  
+```sh
+npm run build-css
+```
+
+## Building and running
+
+> Build React.js components
+
+```sh
+npm run build
+```
+
+### LICENSE
+MIT
