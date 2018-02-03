@@ -8,7 +8,7 @@
     "build-css": "node-sass --include-path scss scss/main.scss   public/css/main.css"
   },
   "author": "Elihu A. Cruz Albores",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "babel-preset-react": "^6.5.0",
     "babelify": "^7.2.0",
